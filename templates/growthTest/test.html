@@ -179,6 +179,11 @@
         </div>
         <!-- end step -->
 
+        {% for q in question_list %}
+          {{q.number}}. {{q.content}}
+          <br>
+        {% endfor %}
+
         <div class="step row">
           <div class="col-md-10">
             <h3>Do you think to suggest our company to a friend or parent?</h3>

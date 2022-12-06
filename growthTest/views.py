@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from .models import *
 
 def home(request):
     return render(request, "growthTest/home.html")
@@ -8,7 +9,8 @@ def userInfo(request):
     return render(request, "growthTest/userInfo.html")
 
 def test(request):
-    return render(request, "growthTest/test.html")
+    questions = Question.objects.all()
+    return render(request, "growthTest/test.html", {'question_list':questions})
 
 def result(request):
     return render(request, "growthTest/result.html")
