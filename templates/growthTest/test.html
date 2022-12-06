@@ -1,0 +1,312 @@
+{% extends "base.html" %} {% load static %}
+
+<!-- stylesheet -->
+{% block otherHead %}
+<link href="{% static 'css/home.css' %}" rel="stylesheet" />
+<!-- <link href="css/style.css" rel="stylesheet" />   -->
+{% endblock otherHead %}
+
+<!-- content -->
+{% block content %}
+<section id="top-area">
+  <!-- <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-xs-3" id="logo">
+          <a href="#">test</a>
+        </div>
+      </div>
+    </div>
+  </header> -->
+  <!-- End header -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 main-title">
+        <h4>아동/검사자 정보 입력</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container" id="main">
+  <!-- Start Survey container -->
+  <div id="survey_container">
+    <div id="top-wizard">
+      <strong>진행<span id="location"></span></strong>
+      <div id="progressbar"></div>
+      <div class="shadow"></div>
+    </div>
+    <!-- end top-wizard -->
+
+    <form name="example-1" id="wrapped" action="survey_send_1.php" method="POST">
+      <div id="middle-wizard">
+        <div class="step">
+          <div class="row">
+            <h3 class="col-md-10">아동 정보</h3>
+            <div class="col-md-6">
+              <ul class="data-list">
+                <li>
+                  <input
+                    type="text"
+                    name="firstname"
+                    class="required form-control"
+                    placeholder="First name"
+                  />
+                </li>
+                <li>
+                  <input
+                    type="text"
+                    name="lastname"
+                    class="required form-control"
+                    placeholder="Last name"
+                  />
+                </li>
+                <li>
+                  <input
+                    type="email"
+                    name="email"
+                    class="required form-control"
+                    placeholder="Your Email"
+                  />
+                </li>
+              </ul>
+            </div>
+            <!-- end col-md-6 -->
+
+            <div class="col-md-6">
+              <ul class="data-list">
+                <li>
+                  <div class="styled-select">
+                    <select class="form-control required" name="country">
+                      <option value="" selected>Select your country</option>
+                      <option value="Europe">Europe</option>
+                      <option value="Asia">Asia</option>
+                      <option value="North America">North America</option>
+                      <option value="South America">South America</option>
+                    </select>
+                  </div>
+                </li>
+              </ul>
+
+              <ul class="data-list floated clearfix">
+                <li id="age">
+                  <input type="text" name="age" class="required form-control" placeholder="Age" />
+                </li>
+                <li>
+                  <input
+                    name="gender"
+                    type="radio"
+                    class="required check_radio"
+                    value="Female"
+                  /><label class="label_gender"> 여자</label>
+                </li>
+                <li>
+                  <input
+                    name="gender"
+                    type="radio"
+                    class="required check_radio"
+                    value="Male"
+                  /><label class="label_gender"> 남자</label>
+                </li>
+              </ul>
+            </div>
+            <!-- end col-md-6 -->
+          </div>
+          <!-- end row -->
+
+          <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+              <ul class="data-list" id="terms">
+                <li>
+                  <strong
+                    ><a href="#" data-toggle="modal" data-target="#terms-txt">개인정보 수집</a>에
+                    동의합니다.
+                  </strong>
+                  <label class="switch-light switch-ios">
+                    <input type="checkbox" name="terms" class="required fix_ie8" value="yes" />
+                    <span>
+                      <span class="ie8_hide">비동의</span>
+                      <span>동의</span>
+                    </span>
+                    <a></a>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- end step-->
+
+        <div class="step row">
+          <div class="col-md-10">
+            <h3>Please rate your overall satisfaction about the service provided.</h3>
+            <ul class="data-list-2">
+              <li>
+                <input
+                  name="rate"
+                  type="radio"
+                  class="required check_radio"
+                  value="Not Satisfied"
+                /><label>전혀 아니다</label>
+              </li>
+              <li>
+                <input
+                  name="rate"
+                  type="radio"
+                  class="required check_radio"
+                  value="Quite Satisfied"
+                /><label>가끔 그렇다</label>
+              </li>
+              <li>
+                <input
+                  name="rate"
+                  type="radio"
+                  class="required check_radio"
+                  value="Satisfied"
+                /><label>자주 그렇다</label>
+              </li>
+              <li>
+                <input
+                  name="rate"
+                  type="radio"
+                  class="required check_radio"
+                  value="Completely Satisfied"
+                /><label>거의 언제나 그렇다</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- end step -->
+
+        <div class="step row">
+          <div class="col-md-10">
+            <h3>Do you think to suggest our company to a friend or parent?</h3>
+            <ul class="data-list-2 clearfix">
+              <li>
+                <input
+                  name="question_2"
+                  type="radio"
+                  class="required check_radio"
+                  value="No"
+                /><label>No</label>
+              </li>
+              <li>
+                <input
+                  name="question_2"
+                  type="radio"
+                  class="required check_radio"
+                  value="Maybe"
+                /><label>Maybe</label>
+              </li>
+              <li>
+                <input
+                  name="question_2"
+                  type="radio"
+                  class="required check_radio"
+                  value="Probably"
+                /><label>Probably </label>
+              </li>
+              <li>
+                <input
+                  name="question_2"
+                  type="radio"
+                  class="required check_radio"
+                  value="100% Sure"
+                /><label>100% Sure</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- end step -->
+
+        <div class="submit step" id="complete">
+          <i class="icon-check"></i>
+          <h3>Survey complete! Thank you for you time.</h3>
+          <button type="submit" name="process" class="submit">Submit the survey</button>
+        </div>
+        <!-- end submit step -->
+      </div>
+      <!-- end middle-wizard -->
+
+      <div id="bottom-wizard">
+        <button type="button" name="backward" class="backward">&lt;</button>
+        <button type="button" name="forward" class="forward">&gt;</button>
+      </div>
+      <!-- end bottom-wizard -->
+    </form>
+  </div>
+  <!-- end Survey container -->
+</section>
+<!-- end section main container -->
+
+<footer>
+  <section id="footer_2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <ul id="footer-nav">
+            <li>Copyright© Ansonika</li>
+            <li><a href="#">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</footer>
+
+<div id="toTop">위로</div>
+
+<!-- Modal About -->
+
+<!-- Modal About (Terms and Conditions) -->
+<div
+  class="modal fade"
+  id="terms-txt"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="termsLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="termsLabel">개인정보 수집 동의서</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          개인정보보호법』 제 15조에 의거하여 개인정보 수집 및 이용에 대해 개인정보 수집 및 이용
+          동의서를 받고 있습니다. 심리검사 결과 및 정보를 제공하기 위한 것이니, 동의 부탁드립니다.
+          또한 수집한 개인정보는 익명 처리 되어, 추후 교육 콘텐츠 및 통계 데이터, 보다 나은 검사도구
+          제작을 위한 정보 제공 용도로 활용될 수 있습니다.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- background polygons -->
+<div id="bg-ring"></div>
+<div id="bg-ring-triangle"></div>
+<div id="bg-circle"></div>
+<div id="bg-square"></div>
+
+<!-- OTHER JS -->
+<script src="{% static 'js/jquery.validate.js'%}"></script>
+<script src="{% static 'js/jquery.placeholder.js'%}"></script>
+<!-- <script src="{% static 'js/jquery.tweet.min.js'%}"></script> -->
+<script src="{% static 'js/jquery.bxslider.min.js'%}"></script>
+<script src="{% static 'js/quantity-bt.js'%}"></script>
+<script src="{% static 'js/bootstrap.js'%}"></script>
+<script src="{% static 'js/retina.js'%}"></script>
+<script src="{% static 'js/owl.carousel.min.js'%}"></script>
+<script src="{% static 'js/functions.js'%}"></script>
+
+{% endblock content %}

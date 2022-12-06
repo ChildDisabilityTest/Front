@@ -1,0 +1,29 @@
+.ns-thin {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 100;
+}
+
+.ns-light {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+}
+
+.ns-regular {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+}
+
+.ns-medium {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 500;
+}
+
+.ns-bold {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 700;
+}
+
+.ns-black {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 900;
+}

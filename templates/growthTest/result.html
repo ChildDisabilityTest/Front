@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.min.js"></script> -->
+    <!-- <script type="module" src="/static/js/drawGraph.js"></script> -->
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- {% block content %} -->
+    <div>검사 결과</div>
+    <div>{{ data }} {{ labels }}</div>
+    <div style="width: 80vw">
+      <canvas id="bar-chart" data-url="{% url 'bar-chart' %}"></canvas>
+    </div>
+    <!-- <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script> -->
+    <!-- <script src="/static/js/drawGraph.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+    <!-- <script type="text/javascript" src="{% static 'js/drawGraph.js' %}"></script> -->
+
+    <script>
+      $(function () {
+        var $barChart = $("#bar-chart");
+        $.ajax({
+          url: $barChart.data("url"), /// growthTest/bar-chart
+          success: function (data) {
+            // console.log("success, url path: ", $barChart.data("url"));
+            var ctx = $barChart[0].getContext("2d");
+
+            new Chart(ctx, {
+              type: "bar",
+              data: {
+                datasets: [
+                  {
+                    label: "점수", // 범례
+                    data: data.data, // 데이터
+                    barThickness: 50,
+                    // backgroundColor: ,
+                  },
+                ],
+                labels: data.labels,
+              },
+              options: {
+                indexAxis: "y",
+                plugins: {
+                  legend: {
+                    // 범례(상단)
+                    display: false,
+                  },
+                  datalabels: {
+                    display: false,
+                  },
+                  tooltip: {
+                    boxWidth: 25,
+                  },
+                },
+                scales: {
+                  x: {
+                    min: 0,
+                    max: 100,
+                  },
+                  y: {
+                    ticks: {
+                      padding: 10,
+                    },
+                    grid: {
+                      display: false,
+                    },
+                  },
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                  duration: 2000,
+                },
+              },
+            });
+          },
+        });
+      });
+    </script>
+
+    <!-- {% endblock %} -->
+  </body>
+</html>

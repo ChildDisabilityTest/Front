@@ -1,0 +1,71 @@
+{% extends "base.html" %} {% load static %}
+
+<!-- stylesheet -->
+{% block otherHead %}
+<link href="{% static 'css/home.css' %}" rel="stylesheet" />
+{% endblock otherHead %}
+
+<!-- content -->
+{% block content %}
+<div class="wrapper">
+  <div class="owl-carousel owl-theme">
+    <div class="item">
+      <div class="img-wrap">
+        <img src="{% static 'img/logo.png' %}" width="276px" height="70px" />
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="comment-wrap">
+        <div class="d-flex flex-column align-items-center gap-5 text-center">
+          <div class="ns-bold">
+            <div class="double-qt">"</div>
+            <div class="sentence">산만해서, 낯가림이 심해서,</div>
+            <div class="sentence">말이 늦어서 남다른 우리아이는</div>
+            <div class="marked-sentence"><span class="highlight">잘 자라고 있을까요?</span></div>
+            <div class="double-qt">"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="test-info-wrap">
+        <div class="d-flex flex-column align-items-center gap-3">
+          <div class="ns-bold test-name">발달장애아동의</div>
+          <div class="ns-bold test-name">발달이해 검사</div>
+          <div class="ns-regular tester-box">만1세~6세 양육자</div>
+
+          <img src="{% static 'img/test.png' %}" width="200px" class="test-info-img"/>
+
+          <div>
+            <div class="ns-regular test-info">검사를 통해서 우리아이의 발달수준과</div>
+            <div class="ns-regular test-info">ADHD&자폐스펙트럼 경향성을</div>      
+            <div class="ns-regular test-info">확인할 수 있습니다.</div>
+          </div>
+
+          <a class="ns-regular testBtn" href="/growthTest/userInfo">시작하기</a>
+        </div>
+      </div>
+      
+        <!-- background polygons -->
+        <div id="bg-ring"></div>
+        <div id="bg-ring-triangle"></div>
+        <div id="bg-circle"></div>
+        <div id="bg-square"></div>
+    </div>
+    </div>
+  </div>
+
+  <!-- OTHER JS -->
+  <script src="{% static 'js/jquery.validate.js'%}"></script>
+  <script src="{% static 'js/jquery.placeholder.js'%}"></script>
+  <!-- <script src="{% static 'js/jquery.tweet.min.js'%}"></script> -->
+  <script src="{% static 'js/jquery.bxslider.min.js'%}"></script>
+  <script src="{% static 'js/quantity-bt.js'%}"></script>
+  <script src="{% static 'js/bootstrap.js'%}"></script>
+  <script src="{% static 'js/retina.js'%}"></script>
+  <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+  <script src="{% static 'js/functions.js'%}"></script>
+</div>
+{% endblock content %}
