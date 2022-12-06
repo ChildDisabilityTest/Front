@@ -32,7 +32,8 @@
 <section class="container" id="main">
   <!-- Start Survey container -->
   <div id="survey_container">
-    <form name="example-1" id="wrapped" action="survey_send_1.php" method="POST">
+    <form name="example-1" id="wrapped" action="{% url 'childInfo' %}" method="POST">
+      {% csrf_token %}
       <div id="middle-wizard">
         <div class="step">
           <div class="row">
@@ -43,61 +44,74 @@
                   <!-- 아동 이름 -->
                   <input
                     type="text"
-                    name="firstname"
+                    name="name"
                     class="required form-control"
-                    placeholder="First name"
+                    placeholder="name"
                   />
                 </li>
                 <!-- 생년월일 -->
                 <li>
                   <input
-                    type="text"
-                    name="lastname"
+                    type="date"
+                    name="birthDate"
                     class="required form-control"
-                    placeholder="Last name"
+                    placeholder="birthDate"
                   />
                 </li>
                 <!-- 아동 성별 -->
-                <li>
+                <!-- <li>
                   <input
-                    type="email"
-                    name="email"
+                  type="email"
+                  name="email"
+                  class="required form-control"
+                  placeholder="Your Email"
+                  />
+                </li> -->
+                <!-- 어린이집/유치원 이름 -->
+                <li>
+                  <!-- 아동 이름 -->
+                  <input
+                    type="text"
+                    name="kindergarden"
                     class="required form-control"
-                    placeholder="Your Email"
+                    placeholder="kindergarden"
                   />
                 </li>
-                <!-- 거주지역 -->
-                <!-- 어린이집/유치원 이름 -->
                 <!-- 검사일 -->
               </ul>
             </div>
             <!-- end col-md-6 -->
-
+            
             <div class="col-md-6">
+              <!-- 거주지역 -->
               <ul class="data-list">
                 <li>
                   <div class="styled-select">
                     <select class="form-control required" name="country">
-                      <option value="" selected>Select your country</option>
-                      <option value="Europe">Europe</option>
-                      <option value="Asia">Asia</option>
-                      <option value="North America">North America</option>
-                      <option value="South America">South America</option>
-                    </select>
-                  </div>
-                </li>
-              </ul>
-
-              <ul class="data-list floated clearfix">
+                      <!-- <option value="" selected>Select your country</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Asia">Asia</option>
+                        <option value="North America">North America</option>
+                        <option value="South America">South America</option> -->
+                        {% for e in emd_list %}
+                        <option value="{{e.id}}">{{e}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </li>
+                </ul>
+                
+                <ul class="data-list floated clearfix">
+                <!-- 아동 성별 -->
                 <li id="age">
-                  <input type="text" name="age" class="required form-control" placeholder="Age" />
+                  <input type="number" name="age" class="required form-control" placeholder="Age" />
                 </li>
                 <li>
                   <input
                     name="gender"
                     type="radio"
                     class="required check_radio"
-                    value="Female"
+                    value="F"
                   /><label class="label_gender"> 여자</label>
                 </li>
                 <li>
@@ -105,7 +119,7 @@
                     name="gender"
                     type="radio"
                     class="required check_radio"
-                    value="Male"
+                    value="M"
                   /><label class="label_gender"> 남자</label>
                 </li>
               </ul>
@@ -137,7 +151,7 @@
         </div>
         <!-- end step-->
 
-        <div class="step row">
+        <!-- <div class="step row">
           <div class="col-md-10">
             <h3>Please rate your overall satisfaction about the service provided.</h3>
             <ul class="data-list-2">
@@ -175,10 +189,10 @@
               </li>
             </ul>
           </div>
-        </div>
+        </div> -->
         <!-- end step -->
 
-        <div class="step row">
+        <!-- <div class="step row">
           <div class="col-md-10">
             <h3>Do you think to suggest our company to a friend or parent?</h3>
             <ul class="data-list-2 clearfix">
@@ -216,7 +230,7 @@
               </li>
             </ul>
           </div>
-        </div>
+        </div> -->
         <!-- end step -->
 
         <div class="submit step" id="complete">
