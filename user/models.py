@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
+from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
 class IncheonRegion(models.Model):
@@ -24,8 +25,6 @@ class Child(models.Model):
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, blank=True, help_text="성별")
     kindergarden = models.CharField(max_length=20, null=True, blank=True, help_text="유치원 이름")
     privacy_agree = models.BooleanField(default=False, help_text="개인정보수집동의")
-    # testDate = models.DateField(null=True, blank=True, help_text="검사일")
-    # tester = models.ForeignKey(Tester, on_delete=models.CASCADE, related_name="tester", null=True, blank=True, help_text="검사자")
 
     def __str__(self):
         return self.name + "(" + str(self.id) + ")"
@@ -34,7 +33,7 @@ class Child(models.Model):
 class Tester(models.Model):
     name = models.CharField(max_length=10, null=True, blank=True, help_text="이름")
     birthDate = models.DateField(null=True, blank=True, help_text="생년월일")
-    email = models.EmailField(null=True, blank=True, help_text="이메일")
+    phone_number = PhoneNumberField(null=True, blank=True, help_text="연락처")
     privacy_agree = models.BooleanField(default=False, help_text="개인정보수집동의")
     child = models.OneToOneField(Child, on_delete=models.CASCADE, related_name="tester_child", null=True, blank=True, help_text="검사 아동")
 
