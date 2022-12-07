@@ -33,7 +33,7 @@
                     <!-- 아동 이름 -->
                     <input
                       type="text"
-                      name="name"
+                      name="childName"
                       class="required form-control"
                       placeholder="아동 이름을 입력해주세요."
                     />
@@ -42,7 +42,7 @@
                   <li>
                     <input
                       type="date"
-                      name="birthDate"
+                      name="childBirthDate"
                       class="required form-control"
                       placeholder="birthDate"
                     />
@@ -127,16 +127,16 @@
                   <!-- 검사자 이름 -->
                   <input
                     type="text"
-                    name="name"
+                    name="testerName"
                     class="required form-control"
-                    placeholder="아동 이름을 입력해주세요."
+                    placeholder="검사자 이름을 입력해주세요."
                   />
                 </li>
                 <!-- 검사자 생년월일 -->
                 <li>
                   <input
                     type="date"
-                    name="birthDate"
+                    name="testerBirthDate"
                     class="required form-control"
                     placeholder="birthDate"
                   />
@@ -145,60 +145,43 @@
                 <li>
                   <input
                     type="text"
-                    name="kindergarden"
+                    name="testerPhone"
                     class="required form-control"
-                    placeholder="어린이집/유치원 이름을 입력해주세요."
+                    placeholder="연락처? 이메일?"
                   />
                 </li>
               </ul>
             </div>
             <!-- end col-md-6 -->
           </div>
-          <!-- end row -->
+          <!-- end step -->
 
-          <!-- <div class="row">
-                  <div class="col-md-4 col-md-offset-4">
-                    <ul class="data-list" id="terms">
-                      <li>
-                        <strong
-                          ><a href="#" data-toggle="modal" data-target="#terms-txt">개인정보 수집</a>에
-                          동의합니다.
-                        </strong>
-                        <label class="switch-light switch-ios">
-                          <input type="checkbox" name="terms" class="required fix_ie8" value="yes" />
-                          <span>
-                            <span class="ie8_hide">비동의</span>
-                            <span>동의</span>
-                          </span>
-                          <a></a>
-                        </label>
-                      </li>
-                    </ul>
-                  </div>
-                </div> -->
-        </div>
-        <!-- end step -->
-
-        <div class="submit step" id="complete">
-          <i class="icon-check"></i>
-          <h3>Survey complete! Thank you for you time.</h3>
-          <div>
-            이 검사는 아동의 발달 수준과 ADHD & 자폐스펙트럼 경향성을 다루게 됩니다. 각 문항을
-            보시면 지난 3개월 동안 아동이 보인 발달의 정도와 행동에 대해서 표시하시면 됩니다.
-            예컨데, 각 문항에 관해 발달이나 행동이 나타나지 않았으면 “전혀 아니다”에 표시하면
-            됩니다. 한편, 발달이나 행동이 나타났을 경우 빈도/횟수에 따라 “가끔 그렇다”, “자주
-            그렇다”, “거의 언제나 그렇다”에 표시하시면 됩니다. 이때 실제 행동보다 해당 행동을 ‘할 수
-            있는가?’에 초점을 두시면 됩니다. 예컨데, “우유병을 스스로 쥐고 먹는다”의 경우 2세 이상
-            아동이 실제 생활에서는 하지 않겠지만, “우유병을 스스로 쥐고 먹을 수 있다"로 해석하시고
-            응답하시면 됩니다. 각 문항에는 옳고 그른 답이 없으며 가장 가깝다고 생각하시는 빈도에
-            체크하시면 됩니다.
+          <div class="submit step" id="complete">
+            <i class="icon-check"></i>
+            <h3>검사 방법 안내</h3>
+            <div>
+              이 검사는 아동의 발달 수준과 ADHD & 자폐스펙트럼 경향성을 다루게 됩니다. 각 문항을
+              보시면 지난 3개월 동안 아동이 보인 발달의 정도와 행동에 대해서 표시하시면 됩니다.
+            </div>
+            <div>
+              예컨데, 각 문항에 관해 발달이나 행동이 나타나지 않았으면 “전혀 아니다”에 표시하면
+              됩니다. 한편, 발달이나 행동이 나타났을 경우 빈도/횟수에 따라 “가끔 그렇다”, “자주
+              그렇다”, “거의 언제나 그렇다”에 표시하시면 됩니다.
+            </div>
+            <div>
+              이때 실제 행동보다 해당 행동을 ‘할 수 있는가?’에 초점을 두시면 됩니다.예컨데,
+              “우유병을 스스로 쥐고 먹는다”의 경우 2세 이상 아동이 실제 생활에서는 하지 않겠지만,
+              “우유병을 스스로 쥐고 먹을 수 있다"로 해석하시고 응답하시면 됩니다.
+            </div>
+            <div>
+              각 문항에는 옳고 그른 답이 없으며 가장 가깝다고 생각하시는 빈도에 체크하시면 됩니다.
+            </div>
+            <!-- <button type="submit" name="process" class="submit">Submit the survey</button> -->
+            <!-- test.html로 -->
+            <a href="/growthTest/test">시작하기</a>
           </div>
-          <button type="submit" name="process" class="submit">Submit the survey</button>
-          <!-- test.html로 -->
-          <a href="">시작하기</a>
+          <!-- end submit step -->
         </div>
-        <!-- end submit step -->
-
         <!-- end middle-wizard -->
 
         <div id="bottom-wizard">
