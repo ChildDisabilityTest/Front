@@ -41,7 +41,9 @@ def userInfo(request):
             child = child
         )
 
-        return redirect('home') # 임시 리다이렉트
+        # 검사자/아동 정보 처리 후 테스트 페이지로 리다이렉트
+        return redirect('test')
+        
     # GET 요청 => 검사자/아동 정보 받는 템플릿 반환
     else:
         emd = IncheonRegion.objects.all()
