@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from .models import *
 
 # Create your views here.
-def childInfo(request):
-    # POST 요청 => 아동정보 등록
+def userInfo(request):
+    # POST 요청 => 검사자/아동 정보 등록
     if request.method == 'POST':
         print("========")
         name = request.POST.get('name')
@@ -27,8 +27,7 @@ def childInfo(request):
             privacy_agree = privacy_agree
         )
         return redirect('home') # 임시 리다이렉트
-        # return render(request, "user/testerInfo.html") # 검사자 정보 입력 페이지로 리다이렉트
-    # GET 요청 => 아동정보 받는 템플릿 반환
+    # GET 요청 => 검사자/아동 정보 받는 템플릿 반환
     else:
         emd = IncheonRegion.objects.all()
-        return render(request, "user/childInfo.html", {'emd_list':emd})
+        return render(request, "user/userInfo.html", {'emd_list':emd})
