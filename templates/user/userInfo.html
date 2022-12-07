@@ -26,11 +26,11 @@
         <div id="middle-wizard">
           <div class="step">
             <div class="row">
-              <h3 class="col-md-10">아동 정보</h3>
+              <div class="col-md-10 info-title">아동 정보</div>
               <div class="col-md-6">
                 <ul class="data-list">
                   <li>
-                    <!-- 아동 이름 -->
+                    <div class="info-label">아동 이름</div>
                     <input
                       type="text"
                       name="childName"
@@ -38,8 +38,8 @@
                       placeholder="아동 이름을 입력해주세요."
                     />
                   </li>
-                  <!-- 생년월일 -->
                   <li>
+                    <div class="info-label">생년월일</div>
                     <input
                       type="date"
                       name="childBirthDate"
@@ -47,16 +47,15 @@
                       placeholder="birthDate"
                     />
                   </li>
-
-                  <!-- 아동 성별 -->
                   <ul class="data-list floated clearfix">
+                    <div class="info-label">아동 성별</div>
                     <li>
                       <input
                         name="gender"
                         type="radio"
                         class="required check_radio"
                         value="F"
-                      /><label class="label_gender"> 여자</label>
+                      /><label class="label_gender">여자</label>
                     </li>
                     <li>
                       <input
@@ -64,7 +63,7 @@
                         type="radio"
                         class="required check_radio"
                         value="M"
-                      /><label class="label_gender"> 남자</label>
+                      /><label class="label_gender">남자</label>
                     </li>
                   </ul>
 
