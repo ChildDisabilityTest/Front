@@ -8,10 +8,7 @@ class ChildAdmin(admin.ModelAdmin):
     list_display = [f.name for f in Child._meta.fields]
 class IncheonRegionAdmin(admin.ModelAdmin):
     list_display = [f.name for f in IncheonRegion._meta.fields]
-class AnswerAdmin(admin.ModelAdmin):
-    list_display = [f.name for f in Answer._meta.fields]
 
 admin.site.register(Tester, TesterAdmin)
 admin.site.register(Child, ChildAdmin)
 admin.site.register(IncheonRegion, IncheonRegionAdmin)
-admin.site.register(Answer, AnswerAdmin)

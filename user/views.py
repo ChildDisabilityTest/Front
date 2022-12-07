@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import *
+import re
 
 # Create your views here.
 def userInfo(request):
@@ -29,8 +30,14 @@ def userInfo(request):
         # 검사자 정보 받아오기
         testerName = request.POST.get('testerName')
         testerBirthDate = request.POST.get('testerBirthDate')
-        testerPhone = request.POST.get('testerPhone') # ex) +821012341234 (country_code=82, national_number=1012341234)
+        testerPhone = request.POST.get('testerPhone')
         tester_privacy_agree = "True"
+
+        # 폰번호 형식 유효성 검사
+        # if not re.search(r'^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$', (testerPhone)):
+        #     print("invalid phone number")
+        # else:
+        #     print("valid phone number")
 
         # tester 객체 만들기 (<= 위에서 만든 child 1:1 연결)
         tester = Tester.objects.create(

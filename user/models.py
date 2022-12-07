@@ -1,6 +1,6 @@
 from django.db import models
-from django.contrib.postgres.fields import ArrayField
-from phonenumber_field.modelfields import PhoneNumberField
+# from phonenumber_field.modelfields import PhoneNumberField
+from django.core.validators import RegexValidator
 
 # Create your models here.
 class IncheonRegion(models.Model):
@@ -33,14 +33,9 @@ class Child(models.Model):
 class Tester(models.Model):
     name = models.CharField(max_length=10, null=True, blank=True, help_text="이름")
     birthDate = models.DateField(null=True, blank=True, help_text="생년월일")
-    phone_number = PhoneNumberField(null=True, blank=True, help_text="연락처")
+    phone_number = models.CharField(max_length = 11, null=True, blank=True, help_text="연락처")
     privacy_agree = models.BooleanField(default=False, help_text="개인정보수집동의")
     child = models.OneToOneField(Child, on_delete=models.CASCADE, related_name="tester_child", null=True, blank=True, help_text="검사 아동")
 
     def __str__(self):
         return self.name + "(" + str(self.id) + ")"
-
-
-class Answer(models.Model):
-    child = models.OneToOneField(Child, on_delete=models.CASCADE, related_name="answer_child", null=True, blank=True, help_text="검사 아동")
-    answers = ArrayField(models.IntegerField(), null=True, blank=True, help_text="제출답안 리스트")
