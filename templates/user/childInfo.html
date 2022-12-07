@@ -3,23 +3,11 @@
 <!-- stylesheet -->
 {% block otherHead %}
 <link href="{% static 'css/home.css' %}" rel="stylesheet" />
-<!-- <link href="css/style.css" rel="stylesheet" />   -->
 {% endblock otherHead %}
 
 <!-- content -->
 {% block content %}
 <section id="top-area">
-  <!-- <header>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-xs-3" id="logo">
-          <a href="#">test</a>
-        </div>
-      </div>
-    </div>
-  </header> -->
-  <!-- End header -->
-
   <div class="container">
     <div class="row">
       <div class="col-md-12 main-title">
@@ -32,24 +20,119 @@
 <section class="container" id="main">
   <!-- Start Survey container -->
   <div id="survey_container">
-    <form name="example-1" id="wrapped" action="{% url 'childInfo' %}" method="POST">
-      {% csrf_token %}
-      <div id="middle-wizard">
-        <div class="step">
-          <div class="row">
-            <h3 class="col-md-10">아동 정보</h3>
+    <div id="wrapped">
+      <form name="example-1" action="{% url 'childInfo' %}" method="POST">
+        {% csrf_token %}
+        <div id="middle-wizard">
+          <div class="step">
+            <div class="row">
+              <h3 class="col-md-10">아동 정보</h3>
+              <div class="col-md-6">
+                <ul class="data-list">
+                  <li>
+                    <!-- 아동 이름 -->
+                    <input
+                      type="text"
+                      name="name"
+                      class="required form-control"
+                      placeholder="아동 이름을 입력해주세요."
+                    />
+                  </li>
+                  <!-- 생년월일 -->
+                  <li>
+                    <input
+                      type="date"
+                      name="birthDate"
+                      class="required form-control"
+                      placeholder="birthDate"
+                    />
+                  </li>
+
+                  <!-- 아동 성별 -->
+                  <ul class="data-list floated clearfix">
+                    <li>
+                      <input
+                        name="gender"
+                        type="radio"
+                        class="required check_radio"
+                        value="F"
+                      /><label class="label_gender"> 여자</label>
+                    </li>
+                    <li>
+                      <input
+                        name="gender"
+                        type="radio"
+                        class="required check_radio"
+                        value="M"
+                      /><label class="label_gender"> 남자</label>
+                    </li>
+                  </ul>
+
+                  <!-- 거주지역 -->
+                  <ul class="data-list">
+                    <li>
+                      <div class="styled-select">
+                        <select class="form-control required" name="country">
+                          {% for e in emd_list %}
+                          <option value="{{e.id}}">{{e}}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </li>
+                  </ul>
+
+                  <!-- 어린이집/유치원 이름 -->
+                  <li>
+                    <input
+                      type="text"
+                      name="kindergarden"
+                      class="required form-control"
+                      placeholder="어린이집/유치원 이름을 입력해주세요."
+                    />
+                  </li>
+                </ul>
+              </div>
+              <!-- end col-md-6 -->
+            </div>
+            <!-- end row -->
+
+            <div class="row">
+              <div class="col-md-4 col-md-offset-4">
+                <ul class="data-list" id="terms">
+                  <li>
+                    <strong
+                      ><a href="#" data-toggle="modal" data-target="#terms-txt">개인정보 수집</a>에
+                      동의합니다.
+                    </strong>
+                    <label class="switch-light switch-ios">
+                      <input type="checkbox" name="terms" class="required fix_ie8" value="yes" />
+                      <span>
+                        <span class="ie8_hide">비동의</span>
+                        <span>동의</span>
+                      </span>
+                      <a></a>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- end step-->
+
+          <div class="step row">
+            <h3 class="col-md-10">검사자 정보</h3>
             <div class="col-md-6">
               <ul class="data-list">
                 <li>
-                  <!-- 아동 이름 -->
+                  <!-- 검사자 이름 -->
                   <input
                     type="text"
                     name="name"
                     class="required form-control"
-                    placeholder="name"
+                    placeholder="아동 이름을 입력해주세요."
                   />
                 </li>
-                <!-- 생년월일 -->
+                <!-- 검사자 생년월일 -->
                 <li>
                   <input
                     type="date"
@@ -58,69 +141,14 @@
                     placeholder="birthDate"
                   />
                 </li>
-                <!-- 아동 성별 -->
-                <!-- <li>
-                  <input
-                  type="email"
-                  name="email"
-                  class="required form-control"
-                  placeholder="Your Email"
-                  />
-                </li> -->
-                <!-- 어린이집/유치원 이름 -->
+                <!-- 연락처 -->
                 <li>
-                  <!-- 아동 이름 -->
                   <input
                     type="text"
                     name="kindergarden"
                     class="required form-control"
-                    placeholder="kindergarden"
+                    placeholder="어린이집/유치원 이름을 입력해주세요."
                   />
-                </li>
-                <!-- 검사일 -->
-              </ul>
-            </div>
-            <!-- end col-md-6 -->
-            
-            <div class="col-md-6">
-              <!-- 거주지역 -->
-              <ul class="data-list">
-                <li>
-                  <div class="styled-select">
-                    <select class="form-control required" name="country">
-                      <!-- <option value="" selected>Select your country</option>
-                        <option value="Europe">Europe</option>
-                        <option value="Asia">Asia</option>
-                        <option value="North America">North America</option>
-                        <option value="South America">South America</option> -->
-                        {% for e in emd_list %}
-                        <option value="{{e.id}}">{{e}}</option>
-                        {% endfor %}
-                      </select>
-                    </div>
-                  </li>
-                </ul>
-                
-                <ul class="data-list floated clearfix">
-                <!-- 아동 성별 -->
-                <li id="age">
-                  <input type="number" name="age" class="required form-control" placeholder="Age" />
-                </li>
-                <li>
-                  <input
-                    name="gender"
-                    type="radio"
-                    class="required check_radio"
-                    value="F"
-                  /><label class="label_gender"> 여자</label>
-                </li>
-                <li>
-                  <input
-                    name="gender"
-                    type="radio"
-                    class="required check_radio"
-                    value="M"
-                  /><label class="label_gender"> 남자</label>
                 </li>
               </ul>
             </div>
@@ -128,134 +156,62 @@
           </div>
           <!-- end row -->
 
-          <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-              <ul class="data-list" id="terms">
-                <li>
-                  <strong
-                    ><a href="#" data-toggle="modal" data-target="#terms-txt">개인정보 수집</a>에
-                    동의합니다.
-                  </strong>
-                  <label class="switch-light switch-ios">
-                    <input type="checkbox" name="terms" class="required fix_ie8" value="yes" />
-                    <span>
-                      <span class="ie8_hide">비동의</span>
-                      <span>동의</span>
-                    </span>
-                    <a></a>
-                  </label>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <!-- <div class="row">
+                  <div class="col-md-4 col-md-offset-4">
+                    <ul class="data-list" id="terms">
+                      <li>
+                        <strong
+                          ><a href="#" data-toggle="modal" data-target="#terms-txt">개인정보 수집</a>에
+                          동의합니다.
+                        </strong>
+                        <label class="switch-light switch-ios">
+                          <input type="checkbox" name="terms" class="required fix_ie8" value="yes" />
+                          <span>
+                            <span class="ie8_hide">비동의</span>
+                            <span>동의</span>
+                          </span>
+                          <a></a>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div> -->
         </div>
-        <!-- end step-->
-
-        <!-- <div class="step row">
-          <div class="col-md-10">
-            <h3>Please rate your overall satisfaction about the service provided.</h3>
-            <ul class="data-list-2">
-              <li>
-                <input
-                  name="rate"
-                  type="radio"
-                  class="required check_radio"
-                  value="Not Satisfied"
-                /><label>전혀 아니다</label>
-              </li>
-              <li>
-                <input
-                  name="rate"
-                  type="radio"
-                  class="required check_radio"
-                  value="Quite Satisfied"
-                /><label>가끔 그렇다</label>
-              </li>
-              <li>
-                <input
-                  name="rate"
-                  type="radio"
-                  class="required check_radio"
-                  value="Satisfied"
-                /><label>자주 그렇다</label>
-              </li>
-              <li>
-                <input
-                  name="rate"
-                  type="radio"
-                  class="required check_radio"
-                  value="Completely Satisfied"
-                /><label>거의 언제나 그렇다</label>
-              </li>
-            </ul>
-          </div>
-        </div> -->
-        <!-- end step -->
-
-        <!-- <div class="step row">
-          <div class="col-md-10">
-            <h3>Do you think to suggest our company to a friend or parent?</h3>
-            <ul class="data-list-2 clearfix">
-              <li>
-                <input
-                  name="question_2"
-                  type="radio"
-                  class="required check_radio"
-                  value="No"
-                /><label>No</label>
-              </li>
-              <li>
-                <input
-                  name="question_2"
-                  type="radio"
-                  class="required check_radio"
-                  value="Maybe"
-                /><label>Maybe</label>
-              </li>
-              <li>
-                <input
-                  name="question_2"
-                  type="radio"
-                  class="required check_radio"
-                  value="Probably"
-                /><label>Probably </label>
-              </li>
-              <li>
-                <input
-                  name="question_2"
-                  type="radio"
-                  class="required check_radio"
-                  value="100% Sure"
-                /><label>100% Sure</label>
-              </li>
-            </ul>
-          </div>
-        </div> -->
         <!-- end step -->
 
         <div class="submit step" id="complete">
           <i class="icon-check"></i>
           <h3>Survey complete! Thank you for you time.</h3>
+          <div>
+            이 검사는 아동의 발달 수준과 ADHD & 자폐스펙트럼 경향성을 다루게 됩니다. 각 문항을
+            보시면 지난 3개월 동안 아동이 보인 발달의 정도와 행동에 대해서 표시하시면 됩니다.
+            예컨데, 각 문항에 관해 발달이나 행동이 나타나지 않았으면 “전혀 아니다”에 표시하면
+            됩니다. 한편, 발달이나 행동이 나타났을 경우 빈도/횟수에 따라 “가끔 그렇다”, “자주
+            그렇다”, “거의 언제나 그렇다”에 표시하시면 됩니다. 이때 실제 행동보다 해당 행동을 ‘할 수
+            있는가?’에 초점을 두시면 됩니다. 예컨데, “우유병을 스스로 쥐고 먹는다”의 경우 2세 이상
+            아동이 실제 생활에서는 하지 않겠지만, “우유병을 스스로 쥐고 먹을 수 있다"로 해석하시고
+            응답하시면 됩니다. 각 문항에는 옳고 그른 답이 없으며 가장 가깝다고 생각하시는 빈도에
+            체크하시면 됩니다.
+          </div>
           <button type="submit" name="process" class="submit">Submit the survey</button>
+          <!-- test.html로 -->
+          <a href="">시작하기</a>
         </div>
         <!-- end submit step -->
-      </div>
-      <!-- end middle-wizard -->
 
-      <div id="bottom-wizard">
-        <button type="button" name="backward" class="backward">&lt;</button>
-        <button type="button" name="forward" class="forward">&gt;</button>
-      </div>
-      <!-- end bottom-wizard -->
-    </form>
+        <!-- end middle-wizard -->
+
+        <div id="bottom-wizard">
+          <button type="button" name="backward" class="backward">Before</button>
+          <button type="button" name="forward" class="forward">Next</button>
+        </div>
+        <!-- end bottom-wizard -->
+      </form>
+    </div>
   </div>
   <!-- end Survey container -->
 </section>
 <!-- end section main container -->
-
-<div id="toTop">위로</div>
-
-<!-- Modal About -->
 
 <!-- Modal About (Terms and Conditions) -->
 <div

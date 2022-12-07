@@ -14,20 +14,20 @@ $(function () {
 });
 
 if (window.innerWidth < 770) {
-  $("button.forward, button.backword").click(function () {
+  $("button.forward, button.backward").click(function () {
     $("html, body").animate({ scrollTop: 115 }, "slow");
     return false;
   });
 }
 
 if (window.innerWidth < 500) {
-  $("button.forward, button.backword").click(function () {
+  $("button.forward, button.backward").click(function () {
     $("html, body").animate({ scrollTop: 245 }, "slow");
     return false;
   });
 }
 if (window.innerWidth < 340) {
-  $("button.forward, button.backword").click(function () {
+  $("button.forward, button.backward").click(function () {
     $("html, body").animate({ scrollTop: 280 }, "slow");
     return false;
   });

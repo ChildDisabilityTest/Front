@@ -18,6 +18,11 @@
   font-weight: 500;
 }
 
+.ns-semibold {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 600;
+}
+
 .ns-bold {
   font-family: "Noto Sans KR", sans-serif;
   font-weight: 700;
