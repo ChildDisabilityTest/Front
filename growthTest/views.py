@@ -8,15 +8,12 @@ def home(request):
 
 @csrf_exempt
 def test(request):
+    # POST 요청 => 답안 디비 저장
     if request.method == 'POST':
-        # print("answer DB save")
-        # a1 = request.POST.get('a1')
-        # a2 = request.POST.get('a2')
-        # a3 = request.POST.get('a3')
-        # a4 = request.POST.get('a4')
 
         answer_list = [0]
 
+        # 답안 정보 받아오기
         for i in range(1, 55):
             a = "a" + str(i)
             answer = request.POST.get(a)
@@ -25,17 +22,21 @@ def test(request):
             answer_list.append(answer)
 
         print(answer_list)
-        # print(answer_list[3])
-        # print(answer_list[54])
 
+        # 쿠키에 저장된 검사 아동 id 가져오기 (-> child 객체 변환)
+        child_id = request.COOKIES['child_id']
+        child = Child.objects.get(pk=child_id)
+        print(child)
+
+        # Answer 객체 생성
         Answer.objects.create(
-            child = 0,
+            child = child,
             answers = answer_list
         )
 
-        # print(a1,a2,a3,a4)
-
         return redirect('home')
+
+    # GET 요청 => 테스트 페이지 반환
     else:
         questions = Question.objects.all()
         return render(request, "growthTest/test.html", {'question_list':questions})

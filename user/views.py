@@ -56,8 +56,11 @@ def userInfo(request):
             child = child
         )
 
-        # 검사자/아동 정보 처리 후 테스트 페이지로 리다이렉트
-        return redirect('test')
+        # 검사자/아동 정보 처리 후 테스트 페이지로 리다이렉트 (쿠키에 child id 저장)
+        response = redirect('test')
+        response.set_cookie('child_id', child.id)
+        return response
+
         
     # GET 요청 => 검사자/아동 정보 받는 템플릿 반환
     else:
