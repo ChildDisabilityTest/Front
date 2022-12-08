@@ -5,9 +5,6 @@ from .models import *
 def home(request):
     return render(request, "growthTest/home.html")
 
-# def userInfo(request):
-#     return render(request, "growthTest/userInfo.html")
-
 def test(request):
     questions = Question.objects.all()
     return render(request, "growthTest/test.html", {'question_list':questions})
