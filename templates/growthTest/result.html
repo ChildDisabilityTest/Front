@@ -14,9 +14,11 @@
   <body>
     <!-- {% block content %} -->
     <div>검사 결과</div>
-    <div>{{ data }} {{ labels }}</div>
-    <div style="width: 80vw">
+    <div style="width: 80vw; height: 50vh">
       <canvas id="bar-chart" data-url="{% url 'bar-chart' %}"></canvas>
+    </div>
+    <div>
+      <canvas id="radar-chart" data-url="{% url 'bar-chart' %}"></canvas>
     </div>
     <!-- <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script> -->
     <!-- <script src="/static/js/drawGraph.js"></script> -->
@@ -42,7 +44,7 @@
                   {
                     label: "점수", // 범례
                     data: data.data, // 데이터
-                    barThickness: 50,
+                    barThickness: 30,
                     // backgroundColor: ,
                   },
                 ],
@@ -74,6 +76,57 @@
                     grid: {
                       display: false,
                     },
+                  },
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                  duration: 2000,
+                },
+              },
+            });
+          },
+        });
+      });
+
+      $(function () {
+        var $rChart = $("#radar-chart");
+        $.ajax({
+          url: $rChart.data("url"), /// growthTest/bar-chart
+          success: function (data) {
+            // console.log("success, url path: ", $barChart.data("url"));
+            var ctx = $rChart[0].getContext("2d");
+
+            new Chart(ctx, {
+              type: "radar",
+              data: {
+                datasets: [
+                  {
+                    label: "점수", // 범례
+                    data: data.data, // 데이터
+                    barThickness: 50,
+                    // backgroundColor: ,
+                  },
+                ],
+                labels: data.labels,
+              },
+              options: {
+                plugins: {
+                  legend: {
+                    // 범례(상단)
+                    display: false,
+                  },
+                  datalabels: {
+                    display: false,
+                  },
+                  tooltip: {
+                    boxWidth: 25,
+                  },
+                },
+                scales: {
+                  r: {
+                    min: 0,
+                    max: 100,
                   },
                 },
                 responsive: true,
