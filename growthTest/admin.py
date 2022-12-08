@@ -6,6 +6,9 @@ class QuestionAdmin(admin.ModelAdmin):
     list_display = [f.name for f in Question._meta.fields]
 class AnswerAdmin(admin.ModelAdmin):
     list_display = [f.name for f in Answer._meta.fields]
+class CommentAdmin(admin.ModelAdmin):
+    list_display = [f.name for f in Comment._meta.fields]
 
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer, AnswerAdmin)
+admin.site.register(Comment, CommentAdmin)

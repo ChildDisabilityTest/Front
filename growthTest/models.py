@@ -30,3 +30,8 @@ class Question(models.Model):
 class Answer(models.Model):
     child = models.OneToOneField(Child, on_delete=models.CASCADE, related_name="answer_child", null=True, blank=True, help_text="검사 아동")
     answers = ArrayField(models.IntegerField(), null=True, blank=True, help_text="제출답안 리스트")
+
+class Comment(models.Model):
+    classification = models.CharField(max_length=10, null=True, blank=True, help_text="분류")
+    stage = models.CharField(max_length=2, null=True, blank=True, help_text="단계")
+    content = models.CharField(max_length=100, null=True, blank=True, help_text="코멘트 내용")

@@ -34,7 +34,7 @@ def test(request):
             answers = answer_list
         )
 
-        return redirect('home')
+        return redirect('result')
 
     # GET 요청 => 테스트 페이지 반환
     else:
@@ -42,6 +42,12 @@ def test(request):
         return render(request, "growthTest/test.html", {'question_list':questions})
 
 def result(request):
+    # 결과 수치 계산 및 코멘트 반환
+    #TODO 결과페이지에 보여줄 데이터 생성 (221208 작성)
+    # 1. 쿠키에 있는 child_id 로 해당 아동의 답안(Answer) 불러와서 규준표 따라 계산
+    # 2. 결과치 DB에 저장 후 (모델/필드 따로 만들어야 함)
+    # 3. 그에 맞는 종합소견 코멘트 불러와서
+    # 4. 수치/코멘트 한번에 같이 넘겨주기
     return render(request, "growthTest/result.html")
 
 def bar_chart(request):
