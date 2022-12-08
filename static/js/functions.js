@@ -74,10 +74,10 @@ $(document).ready(function () {
   });
 
   //Check and radio input styles
-  //   $("input.check_radio").iCheck({
-  //     checkboxClass: "icheckbox_square-aero",
-  //     radioClass: "iradio_square-aero",
-  //   });
+  $("input.check_radio").iCheck({
+    checkboxClass: "icheckbox_square-aero",
+    radioClass: "iradio_square-aero",
+  });
 
   //Pace holder
   $("input, textarea").placeholder();
@@ -97,5 +97,25 @@ $(document).ready(function () {
     autoHeight: false,
     // itemsDesktop: [1199, 3],
     // itemsDesktopSmall: [979, 3],
+  });
+});
+
+// custom ===============================================================================
+$(document).ready(function () {
+  // 숫자만 받기(전화번호 입력 란)
+  $("#onlyNum").keyup(function (event) {
+    var inputVal = $(this).val();
+    $(this).val(inputVal.replace(/[^0-9]/gi, ""));
+  });
+
+  // top area 타이틀 변경
+  $("button.forward, button.backward").click(function () {
+    var title = document.getElementById("complete");
+
+    if (title.style.display === "block") {
+      $("#main-title-text").html("검사 방법 안내");
+    } else {
+      $("#main-title-text").html("아동/검사자 정보 입력");
+    }
   });
 });

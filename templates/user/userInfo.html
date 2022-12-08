@@ -11,7 +11,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 main-title">
-        <h4>아동/검사자 정보 입력</h4>
+        <h4 id="main-title-text">아동/검사자 정보 입력</h4>
       </div>
     </div>
   </div>
@@ -49,27 +49,25 @@
                   </li>
                   <ul class="data-list floated clearfix">
                     <div class="info-label">아동 성별</div>
-                    <li>
-                      <input
-                        name="gender"
-                        type="radio"
-                        class="required check_radio"
-                        value="F"
-                      /><label class="label_gender">여자</label>
-                    </li>
-                    <li>
-                      <input
-                        name="gender"
-                        type="radio"
-                        class="required check_radio"
-                        value="M"
-                      /><label class="label_gender">남자</label>
-                    </li>
+                    <div class="row-gender">
+                      <div class="gender-box">
+                        <input name="gender" type="radio" class="required" value="F" /><label
+                          class="label_gender"
+                          >여자</label
+                        >
+                      </div>
+                      <div>
+                        <input name="gender" type="radio" class="required" value="M" /><label
+                          class="label_gender"
+                          >남자</label
+                        >
+                      </div>
+                    </div>
                   </ul>
 
-                  <!-- 거주지역 -->
                   <ul class="data-list">
                     <li>
+                      <div class="info-label">거주지역</div>
                       <div class="styled-select">
                         <select class="form-control required" name="country">
                           {% for e in emd_list %}
@@ -80,8 +78,8 @@
                     </li>
                   </ul>
 
-                  <!-- 어린이집/유치원 이름 -->
                   <li>
+                    <div class="info-label">어린이집/유치원 이름</div>
                     <input
                       type="text"
                       name="kindergarden"
@@ -91,26 +89,18 @@
                   </li>
                 </ul>
               </div>
-              <!-- end col-md-6 -->
             </div>
-            <!-- end row -->
 
             <div class="row">
               <div class="col-md-4 col-md-offset-4">
                 <ul class="data-list" id="terms">
                   <li>
+                    <input type="checkbox" name="childTerms" class="required" value="yes" />
                     <strong
-                      ><a href="#" data-toggle="modal" data-target="#terms-txt">개인정보 수집</a>에
-                      동의합니다.
+                      ><a href="#" data-toggle="modal" data-target="#terms-txt" id="myModal"
+                        >개인정보 수집</a
+                      >에 동의합니다.
                     </strong>
-                    <label class="switch-light switch-ios">
-                      <input type="checkbox" name="terms" class="required fix_ie8" value="yes" />
-                      <span>
-                        <span class="ie8_hide">비동의</span>
-                        <span>동의</span>
-                      </span>
-                      <a></a>
-                    </label>
                   </li>
                 </ul>
               </div>
@@ -118,57 +108,54 @@
           </div>
           <!-- end step-->
 
-          <div class="step row">
-            <h3 class="col-md-10">검사자 정보</h3>
-            <div class="col-md-6">
-              <ul class="data-list">
-                <li>
-                  <!-- 검사자 이름 -->
-                  <input
-                    type="text"
-                    name="testerName"
-                    class="required form-control"
-                    placeholder="검사자 이름을 입력해주세요."
-                  />
-                </li>
-                <!-- 검사자 생년월일 -->
-                <li>
-                  <input
-                    type="date"
-                    name="testerBirthDate"
-                    class="required form-control"
-                    placeholder="birthDate"
-                  />
-                </li>
-                <!-- 연락처 -->
-                <li>
-                  <input
-                    type="tel"
-                    name="testerPhone"
-                    class="required form-control"
-                    placeholder="연락처? 이메일?"
-                  />
-                </li>
-              </ul>
+          <div class="step">
+            <div class="row">
+              <h3 class="col-md-10">검사자 정보</h3>
+              <div class="col-md-6">
+                <ul class="data-list">
+                  <li>
+                    <div class="info-label">이름</div>
+                    <input
+                      type="text"
+                      name="testerName"
+                      class="required form-control"
+                      placeholder="검사자 이름을 입력해주세요."
+                    />
+                  </li>
+                  <li>
+                    <div class="info-label">생년월일</div>
+                    <input
+                      type="date"
+                      name="testerBirthDate"
+                      class="required form-control"
+                      placeholder="birthDate"
+                    />
+                  </li>
+                  <li>
+                    <div class="info-label">연락처</div>
+                    <input
+                      type="tel"
+                      name="testerPhone"
+                      id="onlyNum"
+                      class="required form-control"
+                      placeholder="-없이 연락처를 입력해주세요."
+                      maxlength="11"
+                    />
+                  </li>
+                </ul>
+              </div>
             </div>
-            <!-- end col-md-6 -->
 
             <div class="row">
               <div class="col-md-4 col-md-offset-4">
                 <ul class="data-list" id="terms">
                   <li>
+                    <input type="checkbox" name="testTerms" class="required" value="yes" required />
                     <strong
-                      ><a href="#" data-toggle="modal" data-target="#terms-txt">개인정보 수집</a>에
-                      동의합니다.
+                      ><a href="#" data-toggle="modal" data-target="#terms-txt" id="myModal"
+                        >개인정보 수집</a
+                      >에 동의합니다.
                     </strong>
-                    <label class="switch-light switch-ios">
-                      <input type="checkbox" name="terms" class="required fix_ie8" value="yes" />
-                      <span>
-                        <span class="ie8_hide">비동의</span>
-                        <span>동의</span>
-                      </span>
-                      <a></a>
-                    </label>
                   </li>
                 </ul>
               </div>
@@ -177,36 +164,35 @@
           <!-- end step -->
 
           <div class="submit step" id="complete">
-            <i class="icon-check"></i>
-            <h3>검사 방법 안내</h3>
             <div>
               이 검사는 아동의 발달 수준과 ADHD & 자폐스펙트럼 경향성을 다루게 됩니다. 각 문항을
               보시면 지난 3개월 동안 아동이 보인 발달의 정도와 행동에 대해서 표시하시면 됩니다.
             </div>
+            <br />
             <div>
               예컨데, 각 문항에 관해 발달이나 행동이 나타나지 않았으면 “전혀 아니다”에 표시하면
-              됩니다. 한편, 발달이나 행동이 나타났을 경우 빈도/횟수에 따라 “가끔 그렇다”, “자주
+              됩니다. 한편, 발달이나 행동이 나타났을 경우 빈도, 횟수에 따라 “가끔 그렇다”, “자주
               그렇다”, “거의 언제나 그렇다”에 표시하시면 됩니다.
             </div>
+            <br />
             <div>
               이때 실제 행동보다 해당 행동을 ‘할 수 있는가?’에 초점을 두시면 됩니다.예컨데,
               “우유병을 스스로 쥐고 먹는다”의 경우 2세 이상 아동이 실제 생활에서는 하지 않겠지만,
               “우유병을 스스로 쥐고 먹을 수 있다"로 해석하시고 응답하시면 됩니다.
             </div>
+            <br />
             <div>
               각 문항에는 옳고 그른 답이 없으며 가장 가깝다고 생각하시는 빈도에 체크하시면 됩니다.
             </div>
             <button type="submit" name="process" class="submit">시작하기</button>
-            <!-- test.html로 -->
-            <!-- <a href="/growthTest/test">시작하기</a> -->
           </div>
           <!-- end submit step -->
         </div>
         <!-- end middle-wizard -->
 
         <div id="bottom-wizard">
-          <button type="button" name="backward" class="backward">Before</button>
-          <button type="button" name="forward" class="forward">Next</button>
+          <button type="button" name="backward" class="backward"></button>
+          <button type="button" name="forward" class="forward"></button>
         </div>
         <!-- end bottom-wizard -->
       </form>
@@ -218,26 +204,26 @@
 
 <!-- Modal About (Terms and Conditions) -->
 <div
-  class="modal fade"
+  class="modal"
   id="terms-txt"
   tabindex="-1"
   role="dialog"
   aria-labelledby="termsLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
         <h4 class="modal-title" id="termsLabel">개인정보 수집 동의서</h4>
       </div>
       <div class="modal-body">
-        <p>
-          개인정보보호법』 제 15조에 의거하여 개인정보 수집 및 이용에 대해 개인정보 수집 및 이용
+        <div>
+          『개인정보보호법』 제 15조에 의거하여 개인정보 수집 및 이용에 대해 개인정보 수집 및 이용
           동의서를 받고 있습니다. 심리검사 결과 및 정보를 제공하기 위한 것이니, 동의 부탁드립니다.
           또한 수집한 개인정보는 익명 처리 되어, 추후 교육 콘텐츠 및 통계 데이터, 보다 나은 검사도구
           제작을 위한 정보 제공 용도로 활용될 수 있습니다.
-        </p>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>

@@ -226,6 +226,7 @@ a.button_medium_2:hover {
 /** Wizard Buttons **/
 .backward,
 .forward {
+  /* 수정 */
   border: none;
   color: #fff;
   padding: 7px 20px;
@@ -239,8 +240,11 @@ a.button_medium_2:hover {
   font-weight: 600;
   text-transform: uppercase;
   outline: none;
-  background: #282828;
+  background: #2864d4;
   position: relative;
+  border-radius: 3px;
+  width: 100px;
+  height: 40px;
 }
 
 .backward {
@@ -250,40 +254,41 @@ a.button_medium_2:hover {
 button[disabled].backward,
 button[disabled].forward {
   border: none;
-  background: #ccc;
+  background: rgb(180, 180, 180);
   outline: none;
 }
 
 .backward:before {
-  content: "\f053";
+  /* 수정 */
+  content: "이전";
   font-family: "Noto Sans KR", sans-serif;
   text-decoration: inherit;
   position: absolute;
   font-weight: normal;
-  top: 8px;
-  left: 20px;
+  top: 9px;
+  left: 35px;
   text-transform: none;
-  font-size: 9px;
+  font-size: 15px;
 }
 
 .forward {
   padding: 7px 30px 7px 20px;
 }
 .forward:before {
-  content: "\f054";
+  content: "다음";
   font-family: "Noto Sans KR", sans-serif;
   text-decoration: inherit;
   position: absolute;
   font-weight: normal;
-  top: 8px;
-  right: 20px;
+  top: 9px;
+  right: 35px;
   text-transform: none;
-  font-size: 9px;
+  font-size: 15px;
 }
 
 .backward:hover,
 .forward:hover {
-  background: #00aeef;
+  background: #7aa0e7;
   color: #fff;
 }
 
@@ -497,6 +502,7 @@ ul#footer-nav li {
   border-bottom-right-radius: 5px;
   background-color: #f3f3f3;
 }
+/* 수정 */
 #complete {
   text-align: center;
   padding: 0 45px 35px 45px;
@@ -515,10 +521,11 @@ ul#footer-nav li {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  font-size: 18px;
-  border: 2px solid #8dc63f;
-  color: #8dc63f;
-  padding: 15px 35px;
+  font-size: 16px;
+  border: 2px solid #2864d4;
+  color: #2864d4;
+  padding: 7px 20px;
+  margin-top: 30px;
   text-decoration: none;
   transition: background 0.5s ease;
   -moz-transition: background 0.5s ease;
@@ -532,9 +539,13 @@ ul#footer-nav li {
   background: #fff;
 }
 #complete button:hover {
-  background: #00aeef;
+  background: #2864d4;
   color: #fff;
-  border: 2px solid #00aeef;
+  border: 2px solid #2864d4;
+}
+#complete div {
+  font-size: 15px;
+  text-align: justify;
 }
 
 /** Featuers and Question boxes ============================= **/
@@ -672,10 +683,11 @@ ul.social-bookmarks.team {
 input.form-control,
 select.form-control,
 textarea.form-control {
+  /* 수정 */
   background: none;
   background-color: #fbfbfb;
-  border: 2px solid #d5d5d5;
-  border-radius: 0;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
   -webkit-appearance: none;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -683,10 +695,10 @@ textarea.form-control {
   box-shadow: none;
   -webkit-transition: none;
   color: #999;
-  height: 44px;
-  font-size: 16px;
+  height: 34px;
+  font-size: 14px;
   font-weight: 400;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   font-family: "Noto Sans KR", sans-serif;
   line-height: 1.428571429;
   padding: 6px 12px;
@@ -702,6 +714,7 @@ textarea.form-control:focus {
 }
 
 /** Drop down select: ex Country select ==================== **/
+/* 수정 */
 .styled-select select {
   background: transparent;
   width: 107%;
@@ -709,7 +722,7 @@ textarea.form-control:focus {
   padding-left: 15px;
   border: 0;
   border-radius: 0;
-  height: 41px;
+  height: 31px;
   margin: 0;
   font-weight: 400;
   -moz-appearance: window;
@@ -719,10 +732,11 @@ textarea.form-control:focus {
 .styled-select {
   width: 100%;
   overflow: hidden;
-  height: 44px;
+  height: 34px;
   background: #fbfbfb url(../img/down_arrow_select.png) no-repeat 98% center;
-  border: 2px solid #d5d5d5;
-  margin-bottom: -5px;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 .styled-select select::-ms-expand,
@@ -742,8 +756,10 @@ ul.floated li {
   width: 30%;
 }
 label.label_gender {
-  padding-left: 50px;
-  line-height: 42px;
+  padding-left: 10px;
+  line-height: 30px;
+  height: 30px;
+  font-size: 15px;
 }
 
 ul.floated li#age {
@@ -952,6 +968,15 @@ ul.data-list-2 li label.error {
 }
 
 /* modal */
+.modal {
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal-backdrop {
+  background-color: rgba(148, 148, 148, 0);
+}
+
 .modal-content {
   position: relative;
   background-color: #fff;
@@ -1142,7 +1167,7 @@ ul.data-list-2 li label.error {
   button[disabled].backward,
   button[disabled].forward {
     text-indent: -9999px;
-    width: 50px;
+    width: 70px;
     padding: 0;
     height: 40px;
   }
@@ -1151,8 +1176,8 @@ ul.data-list-2 li label.error {
   button[disabled].backward:before,
   button[disabled].forward:before {
     text-indent: 0;
-    top: 12px;
-    font-size: 16px;
+    top: 9px;
+    font-size: 15px;
   }
 
   .qty-buttons span {
@@ -1164,12 +1189,14 @@ ul.data-list-2 li label.error {
     line-height: 12px;
   }
 
+  /* 수정 */
   #complete {
-    padding: 0 25px 15px 25px;
+    /* padding: 0 5px 5px 5px; */
+    padding: 0;
   }
   #complete h3 {
     font-size: 18px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   #complete i {
     font-size: 80px;
@@ -1207,10 +1234,11 @@ ul.data-list-2 li label.error {
   }
   #complete h3 {
     font-size: 18px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   #complete {
-    padding: 0 15px 15px 15px;
+    /* padding: 0 10px 5px 10px; */
+    padding: 0;
   }
 }
 
@@ -1279,5 +1307,22 @@ ul.data-list-2 li label.error {
   font-size: 0.8rem;
   font-weight: 500;
   line-height: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
+  margin-left: 3px;
+}
+.row-gender {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 34px;
+  margin-bottom: 10px;
+  margin-left: 3px;
+}
+.gender-box {
+  width: 50%;
+}
+
+.check-terms {
+  margin-top: 145px;
+  /* margin-left: 2px; */
 }
