@@ -12,7 +12,11 @@ def userInfo(request):
         kindergarden = request.POST.get('kindergarden')
         country = request.POST.get('country')
         gender = request.POST.get('gender')
-        privacy_agree = "True"
+        childTerms = request.POST.get('childTerms')
+        if childTerms == 'yes':
+            privacy_agree = "True"
+        else:
+            privacy_agree = "False"
 
         # 지역 객체 가져오기
         residence = IncheonRegion.objects.get(id=country)
@@ -31,7 +35,11 @@ def userInfo(request):
         testerName = request.POST.get('testerName')
         testerBirthDate = request.POST.get('testerBirthDate')
         testerPhone = request.POST.get('testerPhone')
-        tester_privacy_agree = "True"
+        testTerms = request.POST.get('testTerms')
+        if testTerms == 'yes':
+            tester_privacy_agree = "True"
+        else:
+            tester_privacy_agree = "False"
 
         # 폰번호 형식 유효성 검사
         # if not re.search(r'^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$', (testerPhone)):
