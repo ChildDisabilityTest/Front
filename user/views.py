@@ -36,6 +36,7 @@ def userInfo(request):
         testerBirthDate = request.POST.get('testerBirthDate')
         testerPhone = request.POST.get('testerPhone')
         testTerms = request.POST.get('testTerms')
+        relationship = request.POST.get('relationship')
         if testTerms == 'yes':
             tester_privacy_agree = "True"
         else:
@@ -53,7 +54,8 @@ def userInfo(request):
             birthDate = testerBirthDate,
             phone_number = testerPhone,
             privacy_agree = tester_privacy_agree,
-            child = child
+            child = child,
+            relationship = relationship
         )
 
         # 검사자/아동 정보 처리 후 테스트 페이지로 리다이렉트 (쿠키에 child id 저장)
