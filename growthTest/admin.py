@@ -8,7 +8,10 @@ class AnswerAdmin(admin.ModelAdmin):
     list_display = [f.name for f in Answer._meta.fields]
 class CommentAdmin(admin.ModelAdmin):
     list_display = [f.name for f in Comment._meta.fields]
+class CriterionAdmin(admin.ModelAdmin):
+    list_display = [f.name for f in Criterion._meta.fields]
 
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer, AnswerAdmin)
 admin.site.register(Comment, CommentAdmin)
+admin.site.register(Criterion, CriterionAdmin)
