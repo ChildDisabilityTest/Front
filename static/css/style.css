@@ -1393,13 +1393,3 @@ ul.data-list-2 li label.error {
   transform: scale(0.9);
   color: rgb(165, 165, 165);
 }
-
-.result-main-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  line-height: 13px;
-  /* height: 30px; */
-  text-align: center;
-  margin-top: 22px;
-  /* margin-bottom: 10px; */
-}
