@@ -12,7 +12,11 @@ def userInfo(request):
         kindergarden = request.POST.get('kindergarden')
         country = request.POST.get('country')
         gender = request.POST.get('gender')
-        privacy_agree = "True"
+        childTerms = request.POST.get('childTerms')
+        if childTerms == 'yes':
+            privacy_agree = "True"
+        else:
+            privacy_agree = "False"
 
         # 지역 객체 가져오기
         residence = IncheonRegion.objects.get(id=country)
@@ -31,7 +35,12 @@ def userInfo(request):
         testerName = request.POST.get('testerName')
         testerBirthDate = request.POST.get('testerBirthDate')
         testerPhone = request.POST.get('testerPhone')
-        tester_privacy_agree = "True"
+        testTerms = request.POST.get('testTerms')
+        relationship = request.POST.get('relationship')
+        if testTerms == 'yes':
+            tester_privacy_agree = "True"
+        else:
+            tester_privacy_agree = "False"
 
         # 폰번호 형식 유효성 검사
         # if not re.search(r'^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$', (testerPhone)):
@@ -45,11 +54,15 @@ def userInfo(request):
             birthDate = testerBirthDate,
             phone_number = testerPhone,
             privacy_agree = tester_privacy_agree,
-            child = child
+            child = child,
+            relationship = relationship
         )
 
-        # 검사자/아동 정보 처리 후 테스트 페이지로 리다이렉트
-        return redirect('test')
+        # 검사자/아동 정보 처리 후 테스트 페이지로 리다이렉트 (쿠키에 child id 저장)
+        response = redirect('test')
+        response.set_cookie('child_id', child.id)
+        return response
+
         
     # GET 요청 => 검사자/아동 정보 받는 템플릿 반환
     else:
