@@ -95,7 +95,13 @@ def upload_criterion():
     bulk_list = []
 
     for row in zip(df1['연령'], df1['원점수'], df1['백분위'], df1['T점수']):
-        print(row)
+        # print(row)
+        if int(row[3]) <= 40:
+            level = 'L'
+        elif int(row[3]) >= 60:
+            level = 'H'
+        else:
+            level = 'M'
         bulk_list.append(
             Criterion(
                 column = '발달지수',
@@ -103,14 +109,26 @@ def upload_criterion():
                 origin_score = int(row[1]),
                 percentile = int(row[2]),
                 T_score = int(row[3]),
-                level = 'M' # 임시
+                level = level
             )
         )
 
-    print("====")
 
     for row in zip(df2['원점수'], df2['ADHD 백분위'], df2['ADHD T점수'], df2['자폐 백분위'], df2['자폐 T점수']):
-        print(row)
+        # print(row)
+        if int(row[2]) <= 40:
+            level1 = 'L'
+        elif int(row[2]) >= 60:
+            level1 = 'H'
+        else:
+            level1 = 'M'
+
+        if int(row[4]) <= 40:
+            level2 = 'L'
+        elif int(row[4]) >= 60:
+            level2 = 'H'
+        else:
+            level2 = 'M'
         bulk_list.append(
             Criterion(
                 column = 'ADHD경향성',
@@ -118,7 +136,7 @@ def upload_criterion():
                 origin_score = int(row[0]),
                 percentile = int(row[1]),
                 T_score = int(row[2]),
-                level = 'M' # 임시
+                level = level1
             )
         )
         bulk_list.append(
@@ -128,7 +146,7 @@ def upload_criterion():
                 origin_score = int(row[0]),
                 percentile = int(row[3]),
                 T_score = int(row[4]),
-                level = 'M' # 임시
+                level = level2
             )
         )
 
