@@ -1,146 +1,238 @@
-{% load static %}
+{% extends "base.html" %} {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.min.js"></script> -->
-    <!-- <script type="module" src="/static/js/drawGraph.js"></script> -->
-    <title>Document</title>
-  </head>
+<!-- css -->
+{% block otherHead %}
+<link href="{% static 'css/result.css' %}" rel="stylesheet" />
+{% endblock otherHead %}
 
-  <body>
-    <!-- {% block content %} -->
-    <div>검사 결과</div>
-    <div style="width: 80vw; height: 50vh">
-      <canvas id="bar-chart" data-url="{% url 'bar-chart' %}"></canvas>
+<!-- content -->
+{% block content %}
+<section id="top-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 main-title">
+        <!-- <h5>발달장애아동의 발달이해 검사 결과표</h5> -->
+        <div class="result-main-title">발달장애아동의 발달이해</div>
+        <div class="result-main-title">검사 결과표</div>
+      </div>
     </div>
-    <div>
-      <canvas id="radar-chart" data-url="{% url 'bar-chart' %}"></canvas>
+  </div>
+</section>
+
+<section class="container" id="main">
+  <!-- Start Survey container -->
+  <div id="survey_container" class="result-container">
+    <div id="middle-wizard">
+      <div class="step">
+        <!-- <button type="submit" name="process" class="submit">종료(결과 보기)</button> -->
+        <!-- <div class="result-title">발달장애아동의 발달이해 검사 결과지</div> -->
+
+        <!-- 검사자 정보    -->
+        <!-- <div class="test-info-wrap">
+          <div class="test-info-row">
+            <div>이름: ㅇㅇㅇ</div>
+            <div>나이: 만 7 세</div>
+            <div>성별: 여</div>
+            <div>유치원이름</div>
+          </div>
+          <div class="test-info-row">
+            <div>기록자: ㅁㅁㅁ</div>
+            <div>기록일: 22-10-15</div>
+          </div>
+        </div> -->
+
+        <!-- 발달지수  -->
+        <div class="result-wrap">
+          <div class="list-wrap">
+            <div id="back-circle"></div>
+            <div id="front-circle"></div>
+            <div class="result-subtitle">발달지수</div>
+          </div>
+
+          <div class="chart-wrap">
+            <!-- <div class="chart-label">발달지수</div> -->
+            <div class="chart-show">
+              <canvas id="radar-chart" data-url="{% url 'bar-chart' %}" height="120px"></canvas>
+            </div>
+            <div class="chart-bottom">
+              <!-- <div>지연</div>
+              <div>보통</div>
+              <div>성숙</div> -->
+              <div>T점수</div>
+            </div>
+          </div>
+
+          <!-- 코멘트 -->
+          <div class="comment-wrap">
+            <div class="comment-label">보통</div>
+            <div class="comment-text">
+              현재 연령 수준에서 적합하게 발달하고 있습니다. 일상에서 보다 칭찬을 많이 해주셔서 밝고
+              건강하게 자랄 수 있도록 해주세요.
+            </div>
+          </div>
+        </div>
+
+        <!-- 자폐경향성 -->
+        <div class="result-wrap">
+          <div class="list-wrap">
+            <div id="back-circle"></div>
+            <div id="front-circle"></div>
+            <div class="result-subtitle">자폐경향성</div>
+          </div>
+
+          <div>
+            <!-- <canvas id="radar-chart" data-url="{% url 'bar-chart' %}"></canvas> -->
+          </div>
+          <div>코멘트</div>
+        </div>
+
+        <!-- ADHD 경향성 -->
+        <div class="result-wrap">
+          <div class="list-wrap">
+            <div id="back-circle"></div>
+            <div id="front-circle"></div>
+            <div class="result-subtitle">ADHD경향성</div>
+          </div>
+          <div>
+            <!-- <canvas id="radar-chart" data-url="{% url 'bar-chart' %}"></canvas> -->
+          </div>
+          <div>코멘트</div>
+        </div>
+
+        <!-- 기타 공지-->
+        <div class="notice-wrap">
+          <div class="d-flex gap-2">
+            <div>
+              <img src="{% static 'img/notice.png' %}" width="30px" class="test-info-img" />
+            </div>
+            <div>
+              보다 자세한 결과상담을 원하신다면, 미사교심리연구소로 연락해 주세요. <br />
+              E-mail: misakyo@naver.com <br />
+              https://misakyo.com <br />
+              https://blog.naver.com/misakyo
+            </div>
+          </div>
+
+          <div class="d-flex gap-2">
+            <div>
+              <img src="{% static 'img/notice.png' %}" width="30px" class="test-info-img" />
+            </div>
+            <div>
+              <a href="https://forms.gle/PN4caWJ9vhKvZB4A6"
+                >발달장애아동의 발달이해 검사에 대한 만족도 조사</a
+              >입니다. 3 분만 시간을 내주세요. 우리아이들에게 보다 도움이 될 수 있도록 개선해
+              나아가겠습니다.
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드뉴스 탭 -->
+        <div class="result-wrap">
+          <div class="list-wrap">
+            <div id="back-circle"></div>
+            <div id="front-circle"></div>
+            <div class="result-subtitle">검사결과 추천 카드뉴스</div>
+          </div>
+          <div class="card-news-text">검사결과에 맞는 콘텐츠를 확인해 보세요!</div>
+          <div class="card-news-wrap">
+            <!-- 너비 수정 -> css에서, class 추가 -->
+            <img src="{% static 'img/test.png' %}" class="card-news-img" />
+            <img src="{% static 'img/test.png' %}" class="card-news-img" />
+            <img src="{% static 'img/test.png' %}" class="card-news-img" />
+            <img src="{% static 'img/test.png' %}" class="card-news-img" />
+          </div>
+        </div>
+        <br />
+      </div>
     </div>
-    <!-- <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script> -->
-    <!-- <script src="/static/js/drawGraph.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.min.js"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
-    <!-- <script type="text/javascript" src="{% static 'js/drawGraph.js' %}"></script> -->
+    <!-- end middle-wizard -->
+  </div>
+  <!-- end Survey container -->
+</section>
+<!-- end section main container -->
 
-    <script>
-      $(function () {
-        var $barChart = $("#bar-chart");
-        $.ajax({
-          url: $barChart.data("url"), /// growthTest/bar-chart
-          success: function (data) {
-            // console.log("success, url path: ", $barChart.data("url"));
-            var ctx = $barChart[0].getContext("2d");
+<!-- background polygons -->
+<div id="bg-ring"></div>
+<div id="bg-ring-triangle"></div>
+<div id="bg-circle"></div>
+<div id="bg-square"></div>
 
-            new Chart(ctx, {
-              type: "bar",
-              data: {
-                datasets: [
-                  {
-                    label: "점수", // 범례
-                    data: data.data, // 데이터
-                    barThickness: 30,
-                    // backgroundColor: ,
-                  },
-                ],
-                labels: data.labels,
+<!-- <script src="/static/js/drawGraph.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+
+<script>
+  $(function () {
+    var $rChart = $("#radar-chart");
+    $.ajax({
+      url: $rChart.data("url"), /// growthTest/bar-chart
+      success: function (data) {
+        // console.log("success, url path: ", $barChart.data("url"));
+        var ctx = $rChart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: "bar",
+          data: {
+            datasets: [
+              {
+                label: "T 점수", // 범례
+                data: data.data, // 데이터
+                barThickness: 25,
+                backgroundColor: "orange",
               },
-              options: {
-                indexAxis: "y",
-                plugins: {
-                  legend: {
-                    // 범례(상단)
-                    display: false,
-                  },
-                  datalabels: {
-                    display: false,
-                  },
-                  tooltip: {
-                    boxWidth: 25,
-                  },
+            ],
+            labels: data.labels,
+          },
+          options: {
+            indexAxis: "y",
+            plugins: {
+              legend: {
+                // 범례(label)
+                display: false,
+                // position: "bottom",
+              },
+              datalabels: {
+                display: false,
+              },
+              tooltip: {
+                boxWidth: 25,
+              },
+            },
+            scales: {
+              x: {
+                min: 0,
+                max: 100,
+              },
+              y: {
+                ticks: {
+                  padding: 10,
                 },
-                scales: {
-                  x: {
-                    min: 0,
-                    max: 100,
-                  },
-                  y: {
-                    ticks: {
-                      padding: 10,
-                    },
-                    grid: {
-                      display: false,
-                    },
-                  },
-                },
-                responsive: true,
-                maintainAspectRatio: false,
-                animation: {
-                  duration: 2000,
+                grid: {
+                  display: false,
                 },
               },
-            });
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: {
+              duration: 2000,
+            },
           },
         });
-      });
+      },
+    });
+  });
+</script>
 
-      $(function () {
-        var $rChart = $("#radar-chart");
-        $.ajax({
-          url: $rChart.data("url"), /// growthTest/bar-chart
-          success: function (data) {
-            // console.log("success, url path: ", $barChart.data("url"));
-            var ctx = $rChart[0].getContext("2d");
+<!-- OTHER JS -->
+<script src="{% static 'js/jquery.validate.js'%}"></script>
+<script src="{% static 'js/jquery.placeholder.js'%}"></script>
+<!-- <script src="{% static 'js/jquery.tweet.min.js'%}"></script> -->
+<script src="{% static 'js/jquery.bxslider.min.js'%}"></script>
+<script src="{% static 'js/quantity-bt.js'%}"></script>
+<script src="{% static 'js/bootstrap.js'%}"></script>
+<script src="{% static 'js/retina.js'%}"></script>
+<script src="{% static 'js/owl.carousel.min.js'%}"></script>
+<script src="{% static 'js/functions.js'%}"></script>
 
-            new Chart(ctx, {
-              type: "radar",
-              data: {
-                datasets: [
-                  {
-                    label: "점수", // 범례
-                    data: data.data, // 데이터
-                    barThickness: 50,
-                    // backgroundColor: ,
-                  },
-                ],
-                labels: data.labels,
-              },
-              options: {
-                plugins: {
-                  legend: {
-                    // 범례(상단)
-                    display: false,
-                  },
-                  datalabels: {
-                    display: false,
-                  },
-                  tooltip: {
-                    boxWidth: 25,
-                  },
-                },
-                scales: {
-                  r: {
-                    min: 0,
-                    max: 100,
-                  },
-                },
-                responsive: true,
-                maintainAspectRatio: false,
-                animation: {
-                  duration: 2000,
-                },
-              },
-            });
-          },
-        });
-      });
-    </script>
-
-    <!-- {% endblock %} -->
-  </body>
-</html>
+{% endblock content %}

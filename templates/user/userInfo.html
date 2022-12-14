@@ -30,7 +30,7 @@
               <div class="col-md-6">
                 <ul class="data-list">
                   <li>
-                    <div class="info-label">아동 이름</div>
+                    <div class="info-label">*아동 이름</div>
                     <input
                       type="text"
                       name="childName"
@@ -39,7 +39,7 @@
                     />
                   </li>
                   <li>
-                    <div class="info-label">생년월일</div>
+                    <div class="info-label">*생년월일</div>
                     <input
                       type="date"
                       name="childBirthDate"
@@ -48,7 +48,7 @@
                     />
                   </li>
                   <ul class="data-list floated clearfix">
-                    <div class="info-label">아동 성별</div>
+                    <div class="info-label">*아동 성별</div>
                     <div class="row-gender">
                       <div class="gender-box">
                         <input name="gender" type="radio" class="required" value="F" /><label
@@ -67,7 +67,7 @@
 
                   <ul class="data-list">
                     <li>
-                      <div class="info-label">거주지역</div>
+                      <div class="info-label">*거주지역</div>
                       <div class="styled-select">
                         <select class="form-control required" name="country">
                           {% for e in emd_list %}
@@ -83,7 +83,7 @@
                     <input
                       type="text"
                       name="kindergarden"
-                      class="required form-control"
+                      class="form-control"
                       placeholder="어린이집/유치원 이름을 입력해주세요."
                     />
                   </li>
@@ -114,7 +114,7 @@
               <div class="col-md-6">
                 <ul class="data-list">
                   <li>
-                    <div class="info-label">이름</div>
+                    <div class="info-label">*이름</div>
                     <input
                       type="text"
                       name="testerName"
@@ -127,12 +127,12 @@
                     <input
                       type="date"
                       name="testerBirthDate"
-                      class="required form-control"
+                      class="form-control"
                       placeholder="birthDate"
                     />
                   </li>
                   <li>
-                    <div class="info-label">연락처</div>
+                    <div class="info-label">*연락처</div>
                     <input
                       type="tel"
                       name="testerPhone"
@@ -142,6 +142,20 @@
                       maxlength="11"
                     />
                   </li>
+                  <ul class="data-list">
+                    <li>
+                      <div class="info-label">*아동과의 관계</div>
+                      <div class="styled-select">
+                        <select class="form-control required" name="relationship">
+                          <option value="F">부</option>
+                          <option value="M">모</option>
+                          <option value="G">조부모</option>
+                          <option value="T">교사</option>
+                          <option value="E">기타</option>
+                        </select>
+                      </div>
+                    </li>
+                  </ul>
                 </ul>
               </div>
             </div>
@@ -165,25 +179,24 @@
 
           <div class="submit step" id="complete">
             <div>
-              이 검사는 아동의 발달 수준과 ADHD & 자폐스펙트럼 경향성을 다루게 됩니다. 각 문항을
-              보시면 지난 3개월 동안 아동이 보인 발달의 정도와 행동에 대해서 표시하시면 됩니다.
+              <div>"검사를 시작하기 전에 꼭 한 번 천천히 읽어주세요."</div>
+              <div>각 문항을 보면서 지난 3개월동안 가장 가까운 정도를 표시해 주세요.</div>
+              <div>
+                각 문항에는 옳고 그른 답이 없으며 가장 가깝다고 <br />생각하시는 정도에 있는 그대로
+                표시해주세요.
+              </div>
             </div>
-            <br />
             <div>
-              예컨데, 각 문항에 관해 발달이나 행동이 나타나지 않았으면 “전혀 아니다”에 표시하면
-              됩니다. 한편, 발달이나 행동이 나타났을 경우 빈도, 횟수에 따라 “가끔 그렇다”, “자주
-              그렇다”, “거의 언제나 그렇다”에 표시하시면 됩니다.
+              <div>1. 검사 문항에 대해 있는 그대로 솔직하게 응답해 주세요.</div>
+              <div>2. 응답할 때 너무 시간을 끌지 말고 떠오르는 대로 체크해 주세요.</div>
+              <div>3. 각 문항에 대해 가장 가깝다고 판단되는 것을 선택해 주세요.</div>
+              <div>4. 자녀가 여러 명일 경우 각각 따로 진행해 주세요.</div>
+              <div>
+                5. 검사는 총 54 문항이며 소요 시간은 10 분 내외입니다(단, 시간 제한은 없습니다).
+              </div>
+              <div>6. 주기적인 검사를 통해서 변화를 확인해 볼 수 있습니다.</div>
             </div>
-            <br />
-            <div>
-              이때 실제 행동보다 해당 행동을 ‘할 수 있는가?’에 초점을 두시면 됩니다.예컨데,
-              “우유병을 스스로 쥐고 먹는다”의 경우 2세 이상 아동이 실제 생활에서는 하지 않겠지만,
-              “우유병을 스스로 쥐고 먹을 수 있다"로 해석하시고 응답하시면 됩니다.
-            </div>
-            <br />
-            <div>
-              각 문항에는 옳고 그른 답이 없으며 가장 가깝다고 생각하시는 빈도에 체크하시면 됩니다.
-            </div>
+
             <button type="submit" name="process" class="submit">시작하기</button>
           </div>
           <!-- end submit step -->
@@ -191,8 +204,8 @@
         <!-- end middle-wizard -->
 
         <div id="bottom-wizard">
-          <button type="button" name="backward" class="backward"></button>
-          <button type="button" name="forward" class="forward"></button>
+          <button type="button" name="backward" class="backward">이전</button>
+          <button type="button" name="forward" class="forward">다음</button>
         </div>
         <!-- end bottom-wizard -->
       </form>

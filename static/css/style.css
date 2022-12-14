@@ -21,6 +21,8 @@ body {
   font: 13px/20px "Noto Sans KR", sans-serif;
   color: #333;
   -webkit-font-smoothing: antialiased !important;
+  width: 100vw;
+  overflow-x: hidden;
 }
 /** Typography **/
 h1,
@@ -237,7 +239,7 @@ a.button_medium_2:hover {
   -o-transition: background 0.5s ease;
   display: inline-block;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 300;
   text-transform: uppercase;
   outline: none;
   background: #2864d4;
@@ -258,8 +260,8 @@ button[disabled].forward {
   outline: none;
 }
 
-.backward:before {
-  /* 수정 */
+/* 수정 */
+/* .backward:before {
   content: "이전";
   font-family: "Noto Sans KR", sans-serif;
   text-decoration: inherit;
@@ -269,12 +271,12 @@ button[disabled].forward {
   left: 35px;
   text-transform: none;
   font-size: 15px;
-}
+} */
 
 .forward {
   padding: 7px 30px 7px 20px;
 }
-.forward:before {
+/* .forward:before {
   content: "다음";
   font-family: "Noto Sans KR", sans-serif;
   text-decoration: inherit;
@@ -284,7 +286,7 @@ button[disabled].forward {
   right: 35px;
   text-transform: none;
   font-size: 15px;
-}
+} */
 
 .backward:hover,
 .forward:hover {
@@ -771,6 +773,7 @@ ul.data-list li {
   position: relative;
 }
 
+/* 수정 */
 ul.data-list-2 li {
   position: relative;
   height: 42px;
@@ -859,7 +862,7 @@ label.error {
   font-weight: normal;
   padding: 0 6px;
 }
-label.error:after {
+/* label.error:after {
   content: "";
   position: absolute;
   border-style: solid;
@@ -870,7 +873,7 @@ label.error:after {
   z-index: 1;
   bottom: -6px;
   left: 20%;
-}
+} */
 
 .styled-select label.error {
   overflow: visible;
@@ -904,6 +907,28 @@ ul.data-list-2 li label.error {
   color: #fff;
   font-weight: normal;
   padding: 0 6px;
+}
+
+/* 수정 */
+.answer-wrap label.error {
+  position: absolute;
+  /* top: 75px; */
+  top: -22px;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+}
+.answer-wrap label.error:before {
+  content: "모든 검사 문항에 체크해 주세요.";
+  display: block;
+  width: 170px;
+  z-index: 100;
+  background-color: #e34f4f;
+  text-align: center;
+  position: absolute;
+  top: 0px;
+  /* right: -50px; */
+  transform: translate(-50%, 0);
 }
 
 /*============================================================================================*/
@@ -1109,7 +1134,7 @@ ul.data-list-2 li label.error {
     padding: 15px 60px;
   }
   #middle-wizard {
-    padding: 40px 40px 10px 40px;
+    padding: 40px 23px 10px 23px;
   }
 
   ul.floated li#age {
@@ -1166,19 +1191,21 @@ ul.data-list-2 li label.error {
   .forward,
   button[disabled].backward,
   button[disabled].forward {
-    text-indent: -9999px;
+    /* text-indent: -9999px; */
     width: 70px;
     padding: 0;
     height: 40px;
+    font-size: 0.9rem;
   }
-  .backward:before,
+  /* .backward:before,
   .forward:before,
   button[disabled].backward:before,
   button[disabled].forward:before {
     text-indent: 0;
     top: 9px;
     font-size: 15px;
-  }
+    left: 8px;
+  } */
 
   .qty-buttons span {
     top: 10px;
@@ -1325,4 +1352,54 @@ ul.data-list-2 li label.error {
 .check-terms {
   margin-top: 145px;
   /* margin-left: 2px; */
+}
+
+.question-content {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 9px;
+}
+
+.answer-wrap {
+  /* background-color: rgb(189, 189, 189); */
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+
+.answer-radio {
+  appearance: none;
+  vertical-align: middle;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 1px solid rgb(165, 165, 165);
+  border-radius: 50%;
+  transition: border 0.3s ease-in-out;
+}
+.answer-radio:checked {
+  border: 6px solid #eea275;
+}
+.answer-radio:hover {
+  box-shadow: 0 0 0 max(3px, 0.2em) rgb(224, 224, 224);
+  cursor: pointer;
+}
+
+.answer-label {
+  font-size: 10px;
+  transform: scale(0.9);
+  color: rgb(165, 165, 165);
+}
+
+.result-main-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 13px;
+  /* height: 30px; */
+  text-align: center;
+  margin-top: 22px;
+  /* margin-bottom: 10px; */
 }
