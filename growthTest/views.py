@@ -10,6 +10,7 @@ def home(request):
 
 @csrf_exempt
 def test(request):
+    
     # POST 요청 => 답안 디비 저장
     if request.method == 'POST':
 
@@ -40,8 +41,14 @@ def test(request):
 
     # GET 요청 => 테스트 페이지 반환
     else:
+        questions_arr = []
+        chunk = 5
         questions = Question.objects.all()
-        return render(request, "growthTest/test.html", {'question_list':questions})
+
+        for i in range(0, questions.count(), chunk):
+            questions_arr.append(questions[i:i+chunk])
+    
+    return render(request, "growthTest/test.html", {'question_arr':questions_arr})
 
 def result(request):
     # 결과 수치 계산 및 코멘트 반환
@@ -111,10 +118,14 @@ def result(request):
     return render(request, "growthTest/result.html", {'c1':c1,'c2':c2, 'c3':c3, 'comment1':comment1,'comment2':comment2, 'comment3':comment3})
 
 def bar_chart(request):
-    labels=["신체발달", "a", "b", "c", "d", "e", "f"]  # labels
-    data=[43, 60, 87, 69, 32, 12, 92]           # 계산 값(점수)
-
-    return JsonResponse(data={
-        'labels': labels,
-        'data': data,
-    })
+    # labels=["발달지수", "자폐경향성", "ADHD 경향성"]  # labels
+    # data=[83, 35, 12]      # 계산 값(점수) 수정
+    labels=[""]  
+    data=[75]
+    
+    # 이런 식으로 계산 값만(라벨은 필요없음)
+    return JsonResponse(data=[
+        {'labels': labels, 'data': data,}, 
+        {'labels': [""], 'data': [27],},
+        {'labels': [""], 'data': [52],},
+    ], safe=False)

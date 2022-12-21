@@ -1,17 +1,12 @@
 {% extends "base.html" %} {% load static %}
 
-<!-- stylesheet -->
-{% block otherHead %}
-<link href="{% static 'css/home.css' %}" rel="stylesheet" />
-{% endblock otherHead %}
-
 <!-- content -->
 {% block content %}
 <section id="top-area">
   <div class="container">
     <div class="row">
       <div class="col-md-12 main-title">
-        <h5>발달장애아동의 발달이해 검사</h5>
+        <h5>경계성아동의 발달이해 검사</h5>
         <!-- <div class="ns-semibold question-type">[ 검사문항 A - 발달수준 ]</div> -->
       </div>
     </div>
@@ -20,7 +15,7 @@
 
 <section class="container" id="main">
   <!-- Start Survey container -->
-  <div id="survey_container">
+  <div id="survey_container" style="height: auto">
     <div id="top-wizard">
       <div class="mb-1">검사문항 진도율<span id="location"></span></div>
       <div id="progressbar"></div>
@@ -29,77 +24,84 @@
     <!-- end top-wizard -->
 
     <form name="example-1" id="wrapped" action="" method="POST">
-      <div id="middle-wizard">
-        <div class="step row">
-          <div class="col-md-10">
-            <h3>1. 자신의 신체 부위(예: 눈, 코)를 가리킬 수 있다.</h3>
-            <ul class="data-list-2">
-              <li>
-                <input
-                  name="rate"
-                  type="radio"
-                  class="required check_radio"
-                  value="Not Satisfied"
-                /><label>전혀 아니다</label>
-              </li>
-              <li>
-                <input
-                  name="rate"
-                  type="radio"
-                  class="required check_radio"
-                  value="Quite Satisfied"
-                /><label>가끔 그렇다</label>
-              </li>
-              <li>
-                <input
-                  name="rate"
-                  type="radio"
-                  class="required check_radio"
-                  value="Satisfied"
-                /><label>자주 그렇다</label>
-              </li>
-              <li>
-                <input
-                  name="rate"
-                  type="radio"
-                  class="required check_radio"
-                  value="Completely Satisfied"
-                /><label>거의 언제나 그렇다</label>
-              </li>
-            </ul>
+      {% csrf_token %}
+      <div id="middle-wizard" class="pb-1" style="height: auto">
+        {% for arr in question_arr %}
+        <div class="step step-padding">
+          {% for q in arr %}
+          <div class="row">
+            <div>
+              <div class="question-content">{{q.number}}. {{q.content}}</div>
+              <div class="d-flex">
+                <div class="answer-wrap">
+                  <input
+                    name="a{{q.number}}"
+                    type="radio"
+                    class="required answer-radio"
+                    value="1"
+                    id="first{{q.number}}"
+                  /><label class="answer-label" for="first{{q.number}}">전혀 아니다</label>
+                </div>
+                <div class="answer-wrap">
+                  <input
+                    name="a{{q.number}}"
+                    type="radio"
+                    class="required answer-radio"
+                    value="2"
+                    id="second{{q.number}}"
+                  /><label class="answer-label" for="second{{q.number}}">가끔 그렇다</label>
+                </div>
+                <div class="answer-wrap">
+                  <input
+                    name="a{{q.number}}"
+                    type="radio"
+                    class="required answer-radio"
+                    value="3"
+                    id="third{{q.number}}"
+                  /><label class="answer-label" for="third{{q.number}}">자주 그렇다</label>
+                </div>
+                <div class="answer-wrap">
+                  <input
+                    name="a{{q.number}}"
+                    type="radio"
+                    class="required answer-radio"
+                    value="4"
+                    id="fourth{{q.number}}"
+                  /><label class="answer-label" for="fourth{{q.number}}">거의 언제나 그렇다</label>
+                </div>
+              </div>
+            </div>
           </div>
+          {% endfor %}
         </div>
+        {% endfor %}
         <!-- end step -->
 
         <div class="submit step" id="complete">
-          <h3>000님!</h3>
+          <!-- 테스터 이름 받아오기 -->
           <div>
-            우리아의 발달이해 검사 결과를 보내드립니다.<br />
-            아래 버튼을 클릭하시어, 결과를 확인해 주세요.<br />
-            결과에 따라서 맞춤형 정보를 확인하시고,<br />
-            실천해 보시길 바랍니다.
+            <h3>님!</h3>
+            <div class="complete-text">
+              우리아이의 발달이해 검사 결과를 보여드립니다.<br />
+              아래 버튼을 클릭하시어, 결과를 확인해 주세요.<br />
+              결과에 따라서 맞춤형 정보를 확인하시고,<br />
+              실천해 보시길 바랍니다.
+            </div>
+            <button type="submit" name="process" class="submit">종료(결과 보기)</button>
+            <div class="complete-end">언제나 SOS랩을 사랑해 주셔서 감사합니다.</div>
           </div>
-          <button type="submit" name="process" class="submit">종료(결과 보기)</button>
-          <div>언제나 SOS랩을 사랑해 주셔서 감사합니다.</div>
         </div>
         <!-- end submit step -->
       </div>
       <!-- end middle-wizard -->
 
       <div id="bottom-wizard">
-        <button type="button" name="backward" class="backward">&lt;</button>
-        <button type="button" name="forward" class="forward">&gt;</button>
+        <button type="button" name="backward" class="backward">이전</button>
+        <button type="button" name="forward" class="forward">다음</button>
       </div>
-      <!-- end bottom-wizard -->
     </form>
-    <!-- form 닫는 위치가 여기 맞나 -->
   </div>
   <!-- end Survey container -->
-
-  <!-- 검사 문항 for 문 -->
-  {% for q in question_list %} {{q.number}}. {{q.content}}
-  <br />
-  {% endfor %}
 </section>
 <!-- end section main container -->
 

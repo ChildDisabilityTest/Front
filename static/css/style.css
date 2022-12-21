@@ -21,6 +21,9 @@ body {
   font: 13px/20px "Noto Sans KR", sans-serif;
   color: #333;
   -webkit-font-smoothing: antialiased !important;
+  width: 100vw;
+  overflow-x: hidden;
+  /* overflow-y: hidden; */
 }
 /** Typography **/
 h1,
@@ -48,7 +51,7 @@ h2 {
   /* 수정 */
   /* text-shadow: 0 1 px 1px rgba(0, 0, 0, 0.25); */
   color: #2864d4;
-  margin-top: 75px;
+  margin-top: 30px;
 }
 .main-title h4 {
   /* 수정 */
@@ -237,7 +240,7 @@ a.button_medium_2:hover {
   -o-transition: background 0.5s ease;
   display: inline-block;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 300;
   text-transform: uppercase;
   outline: none;
   background: #2864d4;
@@ -248,7 +251,7 @@ a.button_medium_2:hover {
 }
 
 .backward {
-  padding: 7px 20px 7px 30px;
+  padding: 7px 30px 7px 30px;
 }
 
 button[disabled].backward,
@@ -258,8 +261,8 @@ button[disabled].forward {
   outline: none;
 }
 
-.backward:before {
-  /* 수정 */
+/* 수정 */
+/* .backward:before {
   content: "이전";
   font-family: "Noto Sans KR", sans-serif;
   text-decoration: inherit;
@@ -269,12 +272,12 @@ button[disabled].forward {
   left: 35px;
   text-transform: none;
   font-size: 15px;
-}
+} */
 
 .forward {
-  padding: 7px 30px 7px 20px;
+  padding: 7px 30px 7px 30px;
 }
-.forward:before {
+/* .forward:before {
   content: "다음";
   font-family: "Noto Sans KR", sans-serif;
   text-decoration: inherit;
@@ -284,7 +287,7 @@ button[disabled].forward {
   right: 35px;
   text-transform: none;
   font-size: 15px;
-}
+} */
 
 .backward:hover,
 .forward:hover {
@@ -296,7 +299,7 @@ button[disabled].forward {
 #top-area {
   /* 수정 헤더: 배경색, 높이 */
   /* background-color: #e9e9e9; */
-  height: 170px;
+  height: 110px;
 }
 header {
   padding: 10px 0;
@@ -476,7 +479,7 @@ ul#footer-nav li {
   box-shadow: 0 1px 6px rgb(158, 158, 158);
   /* margin-bottom: 60px; */
   /* width: 80%; */
-  height: 600px;
+  height: 580px;
   border-radius: 5px;
   z-index: 9;
   position: relative;
@@ -490,8 +493,8 @@ ul#footer-nav li {
 }
 #middle-wizard {
   /* 수정 */
-  height: 540px;
-  padding: 70px 125px 35px 125px;
+  height: 520px;
+  padding: 30px 350px 30px 350px;
 }
 #bottom-wizard {
   text-align: center;
@@ -509,6 +512,7 @@ ul#footer-nav li {
 }
 #complete h3 {
   text-align: center;
+  margin-top: 30px;
   margin-bottom: 40px;
 }
 #complete i {
@@ -543,10 +547,10 @@ ul#footer-nav li {
   color: #fff;
   border: 2px solid #2864d4;
 }
-#complete div {
+/* #complete div {
   font-size: 15px;
   text-align: justify;
-}
+} */
 
 /** Featuers and Question boxes ============================= **/
 
@@ -771,6 +775,7 @@ ul.data-list li {
   position: relative;
 }
 
+/* 수정 */
 ul.data-list-2 li {
   position: relative;
   height: 42px;
@@ -849,17 +854,17 @@ input.qtyminus {
 label.error {
   font-size: 11px;
   position: absolute;
-  top: -28px;
-  right: -15px;
+  /* top: -28px; */
+  /* right: -15px; */
   z-index: 99;
-  height: 25px;
-  line-height: 25px;
-  background-color: #e34f4f;
+  height: 22px;
+  line-height: 22px;
+  background-color: #e55b5b;
   color: #fff;
   font-weight: normal;
   padding: 0 6px;
 }
-label.error:after {
+/* label.error:after {
   content: "";
   position: absolute;
   border-style: solid;
@@ -870,24 +875,32 @@ label.error:after {
   z-index: 1;
   bottom: -6px;
   left: 20%;
-}
+} */
 
+/* 거주 지역 */
 .styled-select label.error {
   overflow: visible;
 }
 
-ul.floated li#age label.error {
-  right: -15px;
+/* 아동 성별 */
+ul.floated label.error {
+  /* right: -50px; */
+  right: 0px;
 }
 
-ul.floated li label.error {
-  right: -50px;
-}
-
+/* 약관동의 */
 ul.data-list#terms li label.error {
-  left: 45%;
+  /* left: 45%; */
+  right: 0px;
   display: inline-block;
   width: 80px;
+}
+
+/* custom error location */
+/* 이름, 생년월일 */
+ul.data-list li label.error {
+  right: 0px;
+  top: 0px;
 }
 
 /** Error styles for survey questions**/
@@ -900,10 +913,33 @@ ul.data-list-2 li label.error {
   z-index: 99;
   height: 25px;
   line-height: 25px;
-  background-color: #e34f4f;
+  background-color: #e55b5b;
   color: #fff;
   font-weight: normal;
   padding: 0 6px;
+}
+
+/* 검사 문항 체크 에러 */
+.answer-wrap label.error {
+  position: absolute;
+  /* top: 75px; */
+  /* top: -18px; */
+  bottom: 60px;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+}
+.answer-wrap label.error:before {
+  content: "모든 검사문항에 체크해주세요.";
+  display: block;
+  width: 170px;
+  z-index: 100;
+  background-color: #e55b5b;
+  text-align: center;
+  position: absolute;
+  top: 0px;
+  /* right: -50px; */
+  transform: translate(-50%, 0);
 }
 
 /*============================================================================================*/
@@ -1018,14 +1054,186 @@ ul.data-list-2 li label.error {
 }
 
 /*============================================================================================*/
-/* 5.  MEDIA QUERIES */
+/* 5. Custom CSS */
+/*============================================================================================*/
+/* background polygon*/
+#bg-ring {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  position: absolute;
+  top: -80px;
+  left: -50px;
+  z-index: -2;
+  background-color: #ffffff;
+  border: 38px solid rgba(126, 177, 131, 0.8);
+}
+
+#bg-ring-triangle {
+  width: 220px;
+  height: 220px;
+  clip-path: polygon(50% 45%, 0% 100%, 100% 100%);
+  position: absolute;
+  top: -70px;
+  left: -50px;
+  z-index: -1;
+  background-color: #ffffff;
+  /* background-color: #2864d4; */
+  transform: rotate(-28deg);
+}
+
+#bg-circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 25px;
+  left: -85px;
+  z-index: -1;
+  background-color: #f2c98e;
+  opacity: 0.8;
+}
+
+#bg-square {
+  width: 120px;
+  height: 170px;
+  position: absolute;
+  bottom: -50px;
+  right: -45px;
+  z-index: -1;
+  background-color: #db769d;
+  opacity: 0.8;
+  border-radius: 5px;
+  transform: rotate(62deg);
+}
+
+/* common */
+.info-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+.info-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 4px;
+  margin-left: 3px;
+}
+.row-gender {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 34px;
+  margin-bottom: 10px;
+  margin-left: 3px;
+}
+.gender-box {
+  width: 50%;
+}
+
+.check-terms {
+  margin-top: 145px;
+  /* margin-left: 2px; */
+}
+
+.question-content {
+  /* font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 9px; */
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 9px;
+}
+
+.answer-wrap {
+  /* background-color: rgb(189, 189, 189); */
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+
+.answer-radio {
+  appearance: none;
+  vertical-align: middle;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 50%;
+  transition: border 0.3s ease-in-out;
+}
+.answer-radio:checked {
+  border: 6px solid #eea275;
+}
+.answer-radio:hover {
+  box-shadow: 0 0 0 max(3px, 0.2em) rgb(224, 224, 224);
+  cursor: pointer;
+}
+
+.answer-label {
+  font-size: 11px;
+  /* transform: scale(0.9); */
+  color: rgb(179, 179, 179);
+  cursor: pointer;
+}
+
+.complete-text {
+  font-size: 1rem;
+  text-align: center;
+  line-height: 25px;
+}
+
+.complete-end {
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.test-notice {
+  margin: 40px 0 20px 0;
+}
+
+.test-notice div {
+  font-size: 0.75rem;
+  text-align: justify;
+  padding: 0 8px;
+}
+
+.test-notice-num {
+  background-color: #e8edf5;
+  padding: 15px 20px;
+  text-align: justify;
+  /* font-size: 0.74rem; */
+  font-size: 0.75rem;
+  line-height: 24px;
+}
+
+.step-padding {
+  padding: 0 40px;
+}
+
+.checkbox-top {
+  position: relative;
+  top: 2px;
+}
+
+/*============================================================================================*/
+/* 6.  MEDIA QUERIES */
 /*============================================================================================*/
 
-@media (min-width: 768px) and (max-width: 1200px) {
+@media (min-width: 768px) and (max-width: 1400px) {
   #middle-wizard {
     padding: 40px 60px 35px 60px;
   }
 }
+
 @media (min-width: 768px) and (max-width: 979px) {
   #middle-wizard {
     padding: 40px 60px 35px 60px;
@@ -1085,6 +1293,14 @@ ul.data-list-2 li label.error {
     display: block;
   }
 
+  #top-area {
+    height: 155px;
+  }
+
+  .main-title {
+    margin-top: 70px;
+  }
+
   .main-title h1 {
     font-size: 32px;
     line-height: 30px;
@@ -1109,7 +1325,7 @@ ul.data-list-2 li label.error {
     padding: 15px 60px;
   }
   #middle-wizard {
-    padding: 40px 40px 10px 40px;
+    padding: 30px 23px 10px 23px;
   }
 
   ul.floated li#age {
@@ -1156,9 +1372,20 @@ ul.data-list-2 li label.error {
     padding: 20px 0 40px 0;
     margin: 0;
   }
+
+  #survey_container {
+    height: 620px;
+  }
+
   #top-wizard {
     padding: 10px 20px;
   }
+
+  #middle-wizard {
+    height: 560px;
+    padding: 20px 0 10px 0;
+  }
+
   #bottom-wizard {
     padding: 10px 30px;
   }
@@ -1166,19 +1393,21 @@ ul.data-list-2 li label.error {
   .forward,
   button[disabled].backward,
   button[disabled].forward {
-    text-indent: -9999px;
+    /* text-indent: -9999px; */
     width: 70px;
     padding: 0;
     height: 40px;
+    font-size: 0.9rem;
   }
-  .backward:before,
+  /* .backward:before,
   .forward:before,
   button[disabled].backward:before,
   button[disabled].forward:before {
     text-indent: 0;
     top: 9px;
     font-size: 15px;
-  }
+    left: 8px;
+  } */
 
   .qty-buttons span {
     top: 10px;
@@ -1202,6 +1431,18 @@ ul.data-list-2 li label.error {
     font-size: 80px;
     padding: 0;
   }
+
+  /* custom */
+  .step-padding {
+    padding: 5px 11px;
+  }
+  .question-content {
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+  }
+  .answer-label {
+    transform: scale(0.8);
+  }
 }
 
 /* Mobile Portrait */
@@ -1211,10 +1452,7 @@ ul.data-list-2 li label.error {
     line-height: 26px;
     margin-top: 25px;
   }
-  #survey_container {
-    /* 수정 폼 컨테니어 */
-    /* margin-bottom: 30px; */
-  }
+
   #top-nav ul {
     float: none;
     padding: 20px 0 10px 0;
@@ -1240,89 +1478,4 @@ ul.data-list-2 li label.error {
     /* padding: 0 10px 5px 10px; */
     padding: 0;
   }
-}
-
-/*============================================================================================*/
-/* Custom CSS */
-/*============================================================================================*/
-/* background polygon*/
-#bg-ring {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  position: absolute;
-  top: -80px;
-  left: -50px;
-  z-index: -2;
-  background-color: #ffffff;
-  border: 38px solid rgba(126, 177, 131, 0.8);
-}
-
-#bg-ring-triangle {
-  width: 220px;
-  height: 220px;
-  clip-path: polygon(50% 45%, 0% 100%, 100% 100%);
-  position: absolute;
-  top: -70px;
-  left: -50px;
-  z-index: -1;
-  background-color: #ffffff;
-  /* background-color: #2864d4; */
-  transform: rotate(-28deg);
-}
-
-#bg-circle {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  position: absolute;
-  bottom: 30px;
-  left: -85px;
-  z-index: -1;
-  background-color: #f2c98e;
-  opacity: 0.8;
-}
-
-#bg-square {
-  width: 120px;
-  height: 170px;
-  position: absolute;
-  bottom: -70px;
-  right: -45px;
-  z-index: -1;
-  background-color: #db769d;
-  opacity: 0.8;
-  border-radius: 5px;
-  transform: rotate(62deg);
-}
-
-/* common */
-.info-title {
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 30px;
-  margin-bottom: 20px;
-}
-.info-label {
-  font-size: 0.8rem;
-  font-weight: 500;
-  line-height: 20px;
-  margin-bottom: 4px;
-  margin-left: 3px;
-}
-.row-gender {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 34px;
-  margin-bottom: 10px;
-  margin-left: 3px;
-}
-.gender-box {
-  width: 50%;
-}
-
-.check-terms {
-  margin-top: 145px;
-  /* margin-left: 2px; */
 }
