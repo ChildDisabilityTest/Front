@@ -26,6 +26,7 @@ class Answer(models.Model):
 
 class Comment(models.Model):
     classification = models.CharField(max_length=10, help_text="분류")
+    level = models.CharField(max_length=1, help_text="T점수 높낮이")
     stage = models.CharField(max_length=2, help_text="단계")
     content = models.CharField(max_length=100, help_text="코멘트 내용")
 
