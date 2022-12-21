@@ -60,10 +60,12 @@ def result(request):
 def bar_chart(request):
     # labels=["발달지수", "자폐경향성", "ADHD 경향성"]  # labels
     # data=[83, 35, 12]      # 계산 값(점수) 수정
-    labels=[""]     # 라벨링은 따로,,,,?
+    labels=[""]  
     data=[75]
     
-    return JsonResponse(data={
-        'labels': labels,
-        'data': data,
-    })
+    # 이런 식으로 계산 값만(라벨은 필요없음)
+    return JsonResponse(data=[
+        {'labels': labels, 'data': data,}, 
+        {'labels': [""], 'data': [27],},
+        {'labels': [""], 'data': [52],},
+    ], safe=False)

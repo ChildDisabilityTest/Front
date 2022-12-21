@@ -1,52 +1,71 @@
-import { Chart } from "chart.js/auto";
+// import { Chart } from "chart.js/auto";
+// const data = [{ standard: "신체발달", count: 70 }]; // 데이터
 
-const data = [{ standard: "신체발달", count: 70 }]; // 데이터
+var myOptions = {
+  indexAxis: "y",
+  plugins: {
+    legend: {
+      // 범례(상단)
+      display: false,
+    },
+    datalabels: {
+      display: false,
+    },
+    tooltip: {
+      boxWidth: 25,
+    },
+  },
+  scales: {
+    x: {
+      min: 0,
+      max: 100,
+    },
+    y: {
+      ticks: { padding: 10 },
+      grid: {
+        display: false,
+      },
+    },
+  },
+  responsive: true,
+  maintainAspectRatio: false,
+  animation: {
+    duration: 2000,
+  },
+};
 
-var myBar = document.getElementById("bar-chart").getContext("2d");
-var myBarChart = new Chart(myBar, {
+// 자폐경향성 차트
+var autismBar = document.getElementById("autism-chart").getContext("2d");
+var autismBarChart = new Chart(autismBar, {
   type: "bar",
   data: {
-    labels: ["계산 값"], // 데이터
+    labels: [""],
     datasets: [
       {
-        label: "신체발달", // 데이터
-        data: [54], // 데이터
-        barThickness: 50,
+        label: "T점수",
+        data: [Number($("#developValue").val())], // 데이터
+        barThickness: 25,
       },
     ],
   },
-  options: {
-    indexAxis: "y",
-    plugins: {
-      legend: {
-        // 범례(상단)
-        display: false,
+  options: myOptions,
+});
+
+// ADHD경향성 차트
+var adhdBar = document.getElementById("adhd-chart").getContext("2d");
+var adhdBarChart = new Chart(adhdBar, {
+  type: "bar",
+  data: {
+    labels: [""],
+    datasets: [
+      {
+        label: "T점수",
+        data: [Number($("#developValue").val())], // 데이터
+        barThickness: 25,
       },
-      datalabels: {
-        display: false,
-      },
-      tooltip: {
-        boxWidth: 25,
-      },
-    },
-    scales: {
-      x: {
-        min: 0,
-        max: 100,
-      },
-      y: {
-        ticks: {},
-        grid: {
-          display: false,
-        },
-      },
-    },
-    responsive: true,
-    maintainAspectRatio: false,
-    animation: {
-      duration: 4000,
-    },
+    ],
   },
+  options: myOptions,
 });
 
 // new Chart(document.getElementById("acquisitions"), {

@@ -1,3 +1,15 @@
+/* body {
+  padding: 0 250px;
+} */
+
+.result-main-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
 .result-main-title {
   font-size: 1.5rem;
   font-weight: bold;
@@ -16,7 +28,7 @@
 
 .result-container {
   overflow-y: scroll;
-  margin-top: 8px;
+  /* margin-top: 8px; */
 }
 .result-container::-webkit-scrollbar {
   width: 5px;
@@ -47,11 +59,11 @@
 }
 
 .result-wrap {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .result-subtitle {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 
@@ -84,21 +96,29 @@
 
 /* card news */
 .card-news-text {
-  margin: 5px 0 10px 25px;
-  font-size: 0.7rem;
+  margin: 5px 0 15px 25px;
+  font-size: 0.8rem;
 }
 
 .card-news-wrap {
   margin-left: 25px;
   margin-right: 25px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 23px;
 }
 
 .card-news-img {
-  width: 120px;
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+.card-news-title {
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 6px;
 }
 
 /* list */
@@ -141,14 +161,8 @@
 .comment-label {
   background-color: #d9e7fc;
   color: #2864d4;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  /* width: 80px; */
-  /* height: 100%; */
-  /* width: 100px; */
-  /* height: 100px; */
-  /* padding: 0 40px; */
-  /* flex-basis: 100px; */
   min-width: 70px;
   min-height: 70px;
 
@@ -158,8 +172,8 @@
 }
 
 .comment-text {
-  font-size: 0.6rem;
-  font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: 400;
 }
 
 .notice-wrap {
@@ -177,4 +191,48 @@
   color: #f9b252;
   text-decoration: underline;
   font-weight: 500;
+}
+
+/* T Score */
+.twrap {
+  border-top: 0.1rem solid #2864d4;
+  border-bottom: 0.1rem solid #2864d4;
+  margin-bottom: 30px;
+  padding: 7px 20px;
+  font-size: 0.7rem;
+}
+
+/* From tablet portrait to mobile */
+@media (max-width: 767px) {
+  .card-news-img {
+    width: 130px;
+    height: 130px;
+  }
+
+  .card-news-title {
+    font-size: 0.6rem;
+  }
+}
+
+/* Mobile Landscape */
+@media (max-width: 480px) {
+  .result-main-flex {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .result-container {
+    margin-top: 15px;
+  }
+  .result-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .comment-label {
+    font-size: 0.7rem;
+  }
+
+  .card-news-text {
+    font-size: 0.7rem;
+  }
 }
