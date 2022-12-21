@@ -1,16 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .models import *
-from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
 import math
+from user.models import *
 
 def home(request):
     return render(request, "growthTest/home.html")
 
-@csrf_exempt
 def test(request):
-    
     # POST 요청 => 답안 디비 저장
     if request.method == 'POST':
 
@@ -47,8 +45,13 @@ def test(request):
 
         for i in range(0, questions.count(), chunk):
             questions_arr.append(questions[i:i+chunk])
+
+        child_id = request.COOKIES['child_id']
+        child = Child.objects.get(pk=child_id)
+        tester = Tester.objects.get(child=child)
+        # print(tester)
     
-    return render(request, "growthTest/test.html", {'question_arr':questions_arr})
+    return render(request, "growthTest/test.html", {'question_arr':questions_arr, 'tester':tester})
 
 def result(request):
     # 결과 수치 계산 및 코멘트 반환
@@ -58,6 +61,12 @@ def result(request):
     birth_date = int(child.birthDate.strftime('%Y%m%d'))
     now_date = int(datetime.now().date().strftime('%Y%m%d'))
     age = math.floor((now_date-birth_date)/10000)
+
+    # 만 1세 미만은 1세에 포함 / 만 6세 초과 => 6세에 포함
+    if age < 1:
+        age = 1
+    elif age > 6:
+        age = 6
 
     print(child, "는 만 ", age, "세입니다.")
 
