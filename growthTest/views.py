@@ -125,16 +125,3 @@ def result(request):
     print(comment3.stage, "-", comment3.content)
 
     return render(request, "growthTest/result.html", {'c1':c1,'c2':c2, 'c3':c3, 'comment1':comment1,'comment2':comment2, 'comment3':comment3})
-
-def bar_chart(request):
-    # labels=["발달지수", "자폐경향성", "ADHD 경향성"]  # labels
-    # data=[83, 35, 12]      # 계산 값(점수) 수정
-    labels=[""]  
-    data=[75]
-    
-    # 이런 식으로 계산 값만(라벨은 필요없음)
-    return JsonResponse(data=[
-        {'labels': labels, 'data': data,}, 
-        {'labels': [""], 'data': [27],},
-        {'labels': [""], 'data': [52],},
-    ], safe=False)

@@ -42,7 +42,8 @@
 
           <div class="chart-wrap">
             <div class="chart-show">
-              <canvas id="radar-chart" data-url="{% url 'bar-chart' %}" height="120px"></canvas>
+              <!-- <canvas id="radar-chart" data-url="{% url 'bar-chart' %}" height="120px"></canvas> -->
+              <canvas id="develop-chart" height="120px"></canvas>
             </div>
             <div class="chart-bottom">
               <div>T점수</div>
@@ -51,11 +52,8 @@
 
           <!-- 코멘트 -->
           <div class="comment-wrap">
-            <div class="comment-label">보통</div>
-            <div class="comment-text">
-              현재 연령 수준에서 적합하게 발달하고 있습니다. 일상에서 보다 칭찬을 많이 해주셔서 밝고
-              건강하게 자랄 수 있도록 해주세요.
-            </div>
+            <div class="comment-label">{{comment1.stage}}</div>
+            <div class="comment-text">{{comment1.content}}</div>
           </div>
         </div>
 
@@ -79,11 +77,8 @@
 
           <!-- 코멘트 -->
           <div class="comment-wrap">
-            <div class="comment-label">보통</div>
-            <div class="comment-text">
-              현재 연령 수준에서 적합하게 발달하고 있습니다. 일상에서 보다 칭찬을 많이 해주셔서 밝고
-              건강하게 자랄 수 있도록 해주세요.
-            </div>
+            <div class="comment-label">{{comment2.stage}}</div>
+            <div class="comment-text">{{comment2.content}}</div>
           </div>
         </div>
 
@@ -107,11 +102,8 @@
 
           <!-- 코멘트 -->
           <div class="comment-wrap">
-            <div class="comment-label">보통</div>
-            <div class="comment-text">
-              현재 연령 수준에서 적합하게 발달하고 있습니다. 일상에서 보다 칭찬을 많이 해주셔서 밝고
-              건강하게 자랄 수 있도록 해주세요.
-            </div>
+            <div class="comment-label">{{comment3.stage}}</div>
+            <div class="comment-text">{{comment3.content}}</div>
           </div>
         </div>
 
@@ -175,95 +167,21 @@
 <div id="bg-circle"></div>
 <div id="bg-square"></div>
 
-<input type="hidden" id="developValue" value="50" />
+<!-- T 점수 값 -->
+<input type="hidden" id="developValue" value="{{c1.T_score}}" />
+<input type="hidden" id="autismValue" value="{{c2.T_score}}" />
+<input type="hidden" id="adhdValue" value="{{c3.T_score}}" />
 
-<!-- <script src="/static/js/drawGraph.js"></script> -->
+<!-- script -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
 <script src="{% static 'js/lightbox.js'%}"></script>
 
-<!-- bar chart -->
-<script>
-  $(function () {
-    var $rChart = $("#radar-chart");
-    $.ajax({
-      url: $rChart.data("url"), /// growthTest/bar-chart
-
-      success: function (data) {
-        var ctx = $rChart[0].getContext("2d");
-
-        // data[0]: 발달지수, data[1]: 자폐경향성, data[2]: adhd경향성
-        var data = data[1];
-
-        var setColor;
-        if (data.data < 41) {
-          setColor = "rgba(227, 112, 112, 1.0)"; // 빨
-        } else if (data.data < 60) {
-          setColor = "rgba(98, 96, 198, 1.0)"; // 파
-        } else {
-          setColor = "rgba(110, 167, 108, 1.0)"; // 초
-        }
-
-        new Chart(ctx, {
-          type: "bar",
-          data: {
-            datasets: [
-              {
-                label: "T점수", // 범례
-                data: data.data, // 데이터
-                barThickness: 25,
-                backgroundColor: setColor,
-              },
-            ],
-            labels: data.labels,
-          },
-          options: {
-            indexAxis: "y",
-            plugins: {
-              legend: {
-                // 범례(label)
-                display: false,
-                // position: "bottom",
-              },
-              datalabels: {
-                display: false,
-              },
-              tooltip: {
-                boxWidth: 25,
-              },
-            },
-            scales: {
-              x: {
-                min: 0,
-                max: 100,
-              },
-              y: {
-                ticks: {
-                  padding: 10,
-                },
-                grid: {
-                  display: false,
-                },
-              },
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-            animation: {
-              duration: 2000,
-            },
-          },
-        });
-      },
-    });
-  });
-</script>
-
-<!-- OTHER JS -->
 <script src="{% static 'js/jquery.bxslider.min.js'%}"></script>
 <script src="{% static 'js/quantity-bt.js'%}"></script>
 <script src="{% static 'js/bootstrap.js'%}"></script>
 <script src="{% static 'js/retina.js'%}"></script>
-<script type="module" src="{% static 'js/drawGraph.js'%}"></script>
 <script src="{% static 'js/cardnews.js'%}"></script>
+<script type="module" src="{% static 'js/drawGraph.js'%}"></script>
 
 {% endblock content %}
