@@ -49,14 +49,23 @@ def userInfo(request):
         #     print("valid phone number")
 
         # tester 객체 만들기 (<= 위에서 만든 child 1:1 연결)
-        tester = Tester.objects.create(
-            name = testerName,
-            birthDate = testerBirthDate,
-            phone_number = testerPhone,
-            privacy_agree = tester_privacy_agree,
-            child = child,
-            relationship = relationship
-        )
+        if testerBirthDate:
+            tester = Tester.objects.create(
+                name = testerName,
+                birthDate = testerBirthDate,
+                phone_number = testerPhone,
+                privacy_agree = tester_privacy_agree,
+                child = child,
+                relationship = relationship
+            )
+        else:
+            tester = Tester.objects.create(
+                name = testerName,
+                phone_number = testerPhone,
+                privacy_agree = tester_privacy_agree,
+                child = child,
+                relationship = relationship
+            )
 
         # 검사자/아동 정보 처리 후 테스트 페이지로 리다이렉트 (쿠키에 child id 저장)
         response = redirect('test')

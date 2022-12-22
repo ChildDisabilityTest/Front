@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'phonenumber_field',
 
     'growthTest',
-    'user'
+    'user',
+    'dashboard'
 ]
 
 MIDDLEWARE = [

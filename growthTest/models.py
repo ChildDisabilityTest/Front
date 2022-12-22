@@ -50,3 +50,18 @@ class Criterion(models.Model):
     percentile = models.IntegerField(help_text="백분위")
     T_score = models.IntegerField(help_text="T점수")
     level = models.CharField(max_length=1, help_text="T점수 높낮이")
+
+class Result(models.Model):
+    child = models.OneToOneField(Child, on_delete=models.CASCADE, related_name="result_child", help_text="검사 아동")
+    development_origin_score = models.IntegerField(help_text="발달지수 원점수")
+    development_T_score = models.IntegerField(help_text="발달지수 T점수")
+    development_percentile = models.IntegerField(help_text="발달지수 백분위")
+    development_stage = models.CharField(max_length=2, help_text="발달지수 단계")
+    autism_origin_score = models.IntegerField(help_text="자폐경향성 원점수")
+    autism_T_score = models.IntegerField(help_text="자폐경향성 T점수")
+    autism_percentile = models.IntegerField(help_text="자폐경향성 백분위")
+    autism_stage = models.CharField(max_length=2, help_text="자폐경향성 단계")
+    adhd_origin_score = models.IntegerField(help_text="ADHD경향성 원점수")
+    adhd_T_score = models.IntegerField(help_text="ADHD경향성 T점수")
+    adhd_percentile = models.IntegerField(help_text="ADHD경향성 백분위")
+    adhd_stage = models.CharField(max_length=2, help_text="ADHD경향성 단계")
