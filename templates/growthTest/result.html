@@ -24,23 +24,6 @@
   <div id="survey_container" class="result-container">
     <div id="middle-wizard">
       <div class="step step-padding">
-        <!-- <button type="submit" name="process" class="submit">종료(결과 보기)</button> -->
-        <!-- <div class="result-title">발달장애아동의 발달이해 검사 결과지</div> -->
-
-        <!-- 검사자 정보    -->
-        <!-- <div class="test-info-wrap">
-          <div class="test-info-row">
-            <div>이름: ㅇㅇㅇ</div>
-            <div>나이: 만 7 세</div>
-            <div>성별: 여</div>
-            <div>유치원이름</div>
-          </div>
-          <div class="test-info-row">
-            <div>기록자: ㅁㅁㅁ</div>
-            <div>기록일: 22-10-15</div>
-          </div>
-        </div> -->
-
         <!-- T점수 안내 -->
         <div class="twrap">
           <div>* T점수의 범위는 0점 ~ 100점 사이입니다.</div>
@@ -58,14 +41,10 @@
           </div>
 
           <div class="chart-wrap">
-            <!-- <div class="chart-label">발달지수</div> -->
             <div class="chart-show">
               <canvas id="radar-chart" data-url="{% url 'bar-chart' %}" height="120px"></canvas>
             </div>
             <div class="chart-bottom">
-              <!-- <div>지연</div>
-              <div>보통</div>
-              <div>성숙</div> -->
               <div>T점수</div>
             </div>
           </div>
@@ -94,9 +73,6 @@
               <canvas id="autism-chart" height="120px"></canvas>
             </div>
             <div class="chart-bottom">
-              <!-- <div>지연</div>
-              <div>보통</div>
-              <div>성숙</div> -->
               <div>T점수</div>
             </div>
           </div>
@@ -125,9 +101,6 @@
               <canvas id="adhd-chart" height="120px"></canvas>
             </div>
             <div class="chart-bottom">
-              <!-- <div>지연</div>
-              <div>보통</div>
-              <div>성숙</div> -->
               <div>T점수</div>
             </div>
           </div>
@@ -169,7 +142,7 @@
           </div>
         </div>
 
-        <!-- 카드뉴스 탭 -->
+        <!-- 카드뉴스 -->
         <div class="result-wrap">
           <div class="list-wrap">
             <div id="back-circle"></div>
@@ -178,40 +151,13 @@
           </div>
           <div class="card-news-text">검사결과에 맞는 콘텐츠를 확인해 보세요!</div>
           <div class="card-news-wrap">
-            <div class="card-news-component">
-              <a
-                href="{% static 'img/cardnews/card1.png' %}"
-                data-lightbox="card1"
-                data-title="Let's go! 우리 아이, 배움의 세계"
-              >
-                <img src="{% static 'img/test.png' %}" class="card-news-img"
-              /></a>
-              <a
-                href="{% static 'img/cardnews/card2.png' %}"
-                data-lightbox="card1"
-                data-title="Let's go! 우리 아이, 배움의 세계"
-              >
-              </a>
-              <a
-                href="{% static 'img/cardnews/card3.png' %}"
-                data-lightbox="card1"
-                data-title="Let's go! 우리 아이, 배움의 세계"
-              >
-              </a>
-              <div class="card-news-title">Let's go! 우리 아이, 배움의 세계</div>
-            </div>
-            <div class="card-news-component">
-              <img src="{% static 'img/test.png' %}" class="card-news-img" />
-              <div class="card-news-title">My way! 너의 능력을 보여줘!</div>
-            </div>
-            <div class="card-news-component">
-              <img src="{% static 'img/test.png' %}" class="card-news-img" />
-              <div class="card-news-title">유아기 돋움터</div>
-            </div>
-            <div class="card-news-component">
-              <img src="{% static 'img/test.png' %}" class="card-news-img" />
-              <div class="card-news-title">성장하는 부모</div>
-            </div>
+            <!-- 랜덤 카드뉴스 6개 -->
+            <div class="card-news-component" id="card-component-1"></div>
+            <div class="card-news-component" id="card-component-2"></div>
+            <div class="card-news-component" id="card-component-3"></div>
+            <div class="card-news-component" id="card-component-4"></div>
+            <div class="card-news-component" id="card-component-5"></div>
+            <div class="card-news-component" id="card-component-6"></div>
           </div>
         </div>
         <br />
@@ -235,14 +181,6 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
 <script src="{% static 'js/lightbox.js'%}"></script>
-
-<script>
-  lightbox.option({
-    alwaysShowNavOnTouchDevices: true,
-    positionFromTop: 180,
-    wrapAround: true,
-  });
-</script>
 
 <!-- bar chart -->
 <script>
@@ -321,15 +259,11 @@
 </script>
 
 <!-- OTHER JS -->
-<!-- <script src="{% static 'js/jquery.validate.js'%}"></script> -->
-<!-- <script src="{% static 'js/jquery.placeholder.js'%}"></script> -->
-<!-- <script src="{% static 'js/jquery.tweet.min.js'%}"></script> -->
 <script src="{% static 'js/jquery.bxslider.min.js'%}"></script>
 <script src="{% static 'js/quantity-bt.js'%}"></script>
 <script src="{% static 'js/bootstrap.js'%}"></script>
 <script src="{% static 'js/retina.js'%}"></script>
-<!-- <script src="{% static 'js/owl.carousel.min.js'%}"></script> -->
-<!-- <script src="{% static 'js/functions.js'%}"></script> -->
 <script type="module" src="{% static 'js/drawGraph.js'%}"></script>
+<script src="{% static 'js/cardnews.js'%}"></script>
 
 {% endblock content %}
