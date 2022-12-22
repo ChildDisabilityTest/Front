@@ -46,7 +46,7 @@ class Tester(models.Model):
     phone_number = models.CharField(max_length = 11, help_text="연락처")
     privacy_agree = models.BooleanField(default=False, help_text="개인정보수집동의")
     child = models.OneToOneField(Child, on_delete=models.CASCADE, related_name="tester_child", help_text="검사 아동")
-    relationship = models.CharField(max_length=1, null=True, blank=True, choices=RELATIONSHIP_CHOICES, help_text="아동과의 관계") # 나중에 null/blank 설정 해제
+    relationship = models.CharField(max_length=1, choices=RELATIONSHIP_CHOICES, help_text="아동과의 관계")
 
     def __str__(self):
         return self.name + "(" + str(self.id) + ")"

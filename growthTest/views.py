@@ -124,7 +124,26 @@ def result(request):
     print(comment2.stage, "-", comment2.content)
     print(comment3.stage, "-", comment3.content)
 
-    return render(request, "growthTest/result.html", {'c1':c1,'c2':c2, 'c3':c3, 'comment1':comment1,'comment2':comment2, 'comment3':comment3})
+    Result.objects.create(
+        child = child,
+        development_origin_score = c1.origin_score,
+        development_T_score = c1.T_score,
+        development_percentile = c1.percentile,
+        development_stage = comment1.stage,
+        autism_origin_score = c2.origin_score,
+        autism_T_score = c2.T_score,
+        autism_percentile = c2.percentile,
+        autism_stage = comment2.stage,
+        adhd_origin_score = c3.origin_score,
+        adhd_T_score = c3.T_score,
+        adhd_percentile = c3.percentile,
+        adhd_stage = comment3.stage
+    )
+
+    response = render(request, "growthTest/result.html", {'c1':c1,'c2':c2, 'c3':c3, 'comment1':comment1,'comment2':comment2, 'comment3':comment3})
+    response.delete_cookie("child_id")
+
+    return response
 
 def bar_chart(request):
     # labels=["발달지수", "자폐경향성", "ADHD 경향성"]  # labels
