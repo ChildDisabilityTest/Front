@@ -922,9 +922,7 @@ ul.data-list-2 li label.error {
 /* 검사 문항 체크 에러 */
 .answer-wrap label.error {
   position: absolute;
-  /* top: 75px; */
-  /* top: -18px; */
-  bottom: 55px;
+  bottom: 48px;
   left: 50%;
   right: 50%;
   transform: translate(-50%, -50%);
@@ -1352,6 +1350,11 @@ ul.data-list-2 li label.error {
     list-style-type: none;
     float: none;
     display: inline-block;
+  }
+
+  /* 검사 문항 체크 에러 */
+  .answer-wrap label.error {
+    bottom: 55px;
   }
 }
 
