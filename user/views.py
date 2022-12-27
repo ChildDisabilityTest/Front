@@ -1,3 +1,5 @@
+from datetime import datetime
+import math
 from django.shortcuts import render, redirect
 from .models import *
 import re
@@ -12,24 +14,17 @@ def userInfo(request):
         kindergarden = request.POST.get('kindergarden')
         country = request.POST.get('country')
         gender = request.POST.get('gender')
-        childTerms = request.POST.get('childTerms')
-        if childTerms == 'yes':
-            privacy_agree = "True"
-        else:
-            privacy_agree = "False"
 
         # 지역 객체 가져오기
-        residence = IncheonRegion.objects.get(id=country)
+        residence = Region.objects.get(id=country)
 
-        # child 객체 만들기
-        child = Child.objects.create(
-            name = childName,
-            birthDate = childBirthDate,
-            kindergarden = kindergarden,
-            residence = residence,
-            gender = gender,
-            privacy_agree = privacy_agree
-        )
+        #* [error] 아동의 나이가 만 1세 미만 / 만 6세 초과일 경우 더이상 진행X
+        birth_date = int(childBirthDate.replace('-', ''))
+        now_date = int(datetime.now().date().strftime('%Y%m%d'))
+        age = math.floor((now_date-birth_date)/10000)
+        if age < 1 or age > 6:
+            print("[ERROR] invalid child age")
+            return redirect('home')
 
         # 검사자 정보 받아오기
         testerName = request.POST.get('testerName')
@@ -43,10 +38,21 @@ def userInfo(request):
             tester_privacy_agree = "False"
 
         # 폰번호 형식 유효성 검사
-        # if not re.search(r'^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$', (testerPhone)):
-        #     print("invalid phone number")
-        # else:
-        #     print("valid phone number")
+        #* [error] 폰번호 형식이 유효하지 않으면 더이상 진행X
+        if not re.search(r'^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$', (testerPhone)):
+            print("[ERROR] invalid phone number")
+            return redirect('home')
+
+        #! 입력된 정보가 모두 유효하면 child & tester 생성
+        # child 객체 만들기
+        child = Child.objects.create(
+            name = childName,
+            birthDate = childBirthDate,
+            kindergarden = kindergarden,
+            residence = residence,
+            gender = gender,
+            age = age
+        )
 
         # tester 객체 만들기 (<= 위에서 만든 child 1:1 연결)
         if testerBirthDate:
@@ -75,5 +81,5 @@ def userInfo(request):
         
     # GET 요청 => 검사자/아동 정보 받는 템플릿 반환
     else:
-        emd = IncheonRegion.objects.all()
+        emd = Region.objects.all()
         return render(request, "user/userInfo.html", {'emd_list':emd})
