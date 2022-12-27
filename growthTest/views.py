@@ -41,7 +41,7 @@ def test(request):
     else:
         questions_arr = []
         chunk = 5
-        questions = Question.objects.all()
+        questions = Question.objects.all().order_by('number')
 
         for i in range(0, questions.count(), chunk):
             questions_arr.append(questions[i:i+chunk])
