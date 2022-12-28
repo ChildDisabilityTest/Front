@@ -23,7 +23,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body style="background-color:#1E293B;background-size:cover;">
 
     <div class="container">
 
@@ -35,25 +35,29 @@
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
-                        <div class="row" style="height:500px;">
-                            <div class="col-lg-6 d-none d-lg-block" style="background-image: url('https://velog.velcdn.com/images/kjyeon1101/post/762dc584-6d08-47b0-ac16-13da16b4d5b2/image.gif');background-size:cover;"></div>
+                        <div class="row" style="justify-content:center;">
+                            <!-- <div class="col-lg-6 d-none d-lg-block" style="background-image: url('https://velog.velcdn.com/images/kjyeon1101/post/762dc584-6d08-47b0-ac16-13da16b4d5b2/image.gif');background-size:cover;"></div> -->
                             <div class="col-lg-6">
                                 <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome!</h1>
+                                    <div class="text-center" style="padding:0 0 20px 0;">
+                                        <!-- <h1 class="h4 text-gray-900 mb-4">Welcome!</h1> -->
+                                        <img src="{% static 'img/logo.png' %}" alt="logo" style="width:150px;">
                                     </div>
+                                    <hr>
                                     <form class="user" method="POST">
                                         {% csrf_token %}
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" name="username"
+                                        <div class="form-group" style="color:black;">
+                                            아이디
+                                            <input type="text" class="form-control form-control-user" name="username" style="border-radius:4px;"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Username">
+                                                placeholder="아이디를 입력해주세요.">
                                         </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" name="password"
-                                                id="exampleInputPassword" placeholder="Password">
+                                        <div class="form-group" style="color:black;">
+                                            비밀번호
+                                            <input type="password" class="form-control form-control-user" name="password" style="border-radius:4px;"
+                                                id="exampleInputPassword" placeholder="비밀번호를 입력해주세요.">
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">로그인</button>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block" style="background-color: #1E293B;border-color:#1E293B;border-radius:4px;margin-top:2rem;">로그인</button>
                                     </form>
                                 </div>
                             </div>
