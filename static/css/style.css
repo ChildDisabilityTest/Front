@@ -883,15 +883,17 @@ label.error {
 }
 
 /* 아동 성별 */
-ul.floated label.error {
+ul.floated li label.error {
   /* right: -50px; */
   right: 0px;
+  top: 0px;
 }
 
 /* 약관동의 */
 ul.data-list#terms li label.error {
   /* left: 45%; */
   right: 0px;
+  top: 25px;
   display: inline-block;
   width: 80px;
 }
@@ -1110,7 +1112,7 @@ ul.data-list-2 li label.error {
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 .info-label {
   font-size: 0.8rem;
@@ -1177,7 +1179,8 @@ ul.data-list-2 li label.error {
 .answer-label {
   font-size: 11px;
   /* transform: scale(0.9); */
-  color: rgb(179, 179, 179);
+  color: #757575;
+  /* color: #000; */
   cursor: pointer;
 }
 
@@ -1217,9 +1220,25 @@ ul.data-list-2 li label.error {
   padding: 0 40px;
 }
 
+.info-padding {
+  padding: 0 40px;
+}
+
 .checkbox-top {
   position: relative;
   top: 2px;
+}
+
+.userinfo-notice {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #000;
+  background-color: #f0f5fe;
+  margin-top: -5px;
+  margin-bottom: 14px;
+  line-height: 1rem;
+  padding: 10px 0;
+  text-align: center;
 }
 
 /*============================================================================================*/
@@ -1445,6 +1464,9 @@ ul.data-list-2 li label.error {
   }
   .answer-label {
     transform: scale(0.8);
+  }
+  .info-padding {
+    padding: 8px 30px;
   }
 }
 

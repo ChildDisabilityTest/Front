@@ -90,7 +90,7 @@ $(document).ready(function () {
     nav: false,
     // margin: 10,
     items: 1,
-    autoplay: true,
+    // autoplay: true,
     autoplayTimeout: 2000,
     autoplayHoverPause: false,
     autoWidth: false,
@@ -103,7 +103,7 @@ $(document).ready(function () {
 // custom ===============================================================================
 $(document).ready(function () {
   // 숫자만 받기(전화번호 입력 란)
-  $("#onlyNum").keyup(function (event) {
+  $("#testerPhone").keyup(function (event) {
     var inputVal = $(this).val();
     $(this).val(inputVal.replace(/[^0-9]/gi, ""));
   });
@@ -118,4 +118,25 @@ $(document).ready(function () {
       $("#main-title-text").html("아동/검사자 정보 입력");
     }
   });
+});
+
+$(document).ready(function () {
+  // 만 나이 계산, input date 제한
+  const today = new Date(); // 오늘 날짜
+
+  const ty = today.getFullYear();
+  const tm = today.getMonth();
+  const td = today.getDate();
+
+  let minDate = new Date(ty - 7, tm, td); // 만 1세 기준 날짜 계산
+  minDate.setDate(minDate.getDate() + 1); // 만 6세 기준 날짜 계산
+  // alert(minDate);
+
+  const miny = minDate.getFullYear();
+  const minm = minDate.getMonth();
+  const mind = minDate.getDate();
+
+  let childBirth = document.getElementById("childBirthDate");
+  childBirth.setAttribute("max", `${ty - 1}-${tm + 1}-${td}`);
+  childBirth.setAttribute("min", `${miny}-${minm + 1}-${mind}`);
 });
