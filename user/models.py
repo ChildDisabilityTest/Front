@@ -3,13 +3,11 @@ from django.db import models
 from django.core.validators import RegexValidator
 
 # Create your models here.
-class IncheonRegion(models.Model):
-    si = models.CharField(max_length=10, help_text="시")
-    gu = models.CharField(max_length=10, help_text="구/군")
-    emd = models.CharField(max_length=10, help_text="읍면동")
+class Region(models.Model):
+    name = models.CharField(max_length=10, help_text="지역명")
 
     def __str__(self):
-        return self.si + " " + self.gu + " " + self.emd
+        return self.name
 
 
 class Child(models.Model):
@@ -21,10 +19,10 @@ class Child(models.Model):
 
     name = models.CharField(max_length=10, help_text="이름")
     birthDate = models.DateField(help_text="생년월일")
-    residence = models.ForeignKey(IncheonRegion, on_delete=models.CASCADE, related_name="residence", help_text="거주지역")
+    age = models.IntegerField(help_text="만나이")
+    residence = models.ForeignKey(Region, on_delete=models.CASCADE, related_name="residence", help_text="거주지역")
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, help_text="성별")
     kindergarden = models.CharField(max_length=20, null=True, blank=True, help_text="유치원 이름")
-    privacy_agree = models.BooleanField(default=False, help_text="개인정보수집동의")
     tested_at = models.DateField(auto_now_add=True, help_text="검사일")
 
     def __str__(self):

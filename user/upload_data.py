@@ -1,26 +1,24 @@
 import os, csv
 from .models import *
 
-# 인천 지역정보 업로드
-def upload_incheon():
+# 지역정보 업로드
+def upload_region():
     f_path = os.path.abspath(os.path.join(
-        '인천광역시_법정동.csv'
+        'region.csv'
     ))
 
     bulk_list = []
 
     with open(f_path, 'r', encoding='euc-kr') as f:
-        reader = csv.reader(f, delimiter=',')
+        reader = csv.reader(f)
         for row in reader:
             # print(row)
             bulk_list.append(
-                IncheonRegion(
-                    si = row[0],
-                    gu = row[1],
-                    emd = row[2]
+                Region(
+                    name = row[0]
                 )
             )
 
-    I = IncheonRegion.objects.bulk_create(bulk_list)
-    print("!!Incheon Region upload success!!")
+    R = Region.objects.bulk_create(bulk_list)
+    print("!!Region upload success!!")
     return

@@ -41,7 +41,7 @@ def test(request):
     else:
         questions_arr = []
         chunk = 5
-        questions = Question.objects.all()
+        questions = Question.objects.all().order_by('number')
 
         for i in range(0, questions.count(), chunk):
             questions_arr.append(questions[i:i+chunk])
@@ -58,18 +58,6 @@ def result(request):
     child_id = request.COOKIES['child_id']
     child = Child.objects.get(pk=child_id)
 
-    birth_date = int(child.birthDate.strftime('%Y%m%d'))
-    now_date = int(datetime.now().date().strftime('%Y%m%d'))
-    age = math.floor((now_date-birth_date)/10000)
-
-    # 만 1세 미만은 1세에 포함 / 만 6세 초과 => 6세에 포함
-    if age < 1:
-        age = 1
-    elif age > 6:
-        age = 6
-
-    print(child, "는 만 ", age, "세입니다.")
-
     answer = Answer.objects.get(child=child)
     a = answer.answers
     r1 = 0 # 발달지수
@@ -77,7 +65,7 @@ def result(request):
     r3 = 0 # ADHD경향성
 
     # 1번 ~ 30번 발달지수
-    for i in range((age-1)*5+1, age*5+1):
+    for i in range((child.age-1)*5+1, child.age*5+1):
         r1 += a[i]
 
     # 31번 ~ 42번 자폐경향성
@@ -90,7 +78,7 @@ def result(request):
 
     print("====> ", r1,r2,r3)
 
-    c1 = Criterion.objects.get(column="발달지수", age=age, origin_score=r1)
+    c1 = Criterion.objects.get(column="발달지수", age=child.age, origin_score=r1)
     c2 = Criterion.objects.get(column="자폐경향성", origin_score=r2)
     c3 = Criterion.objects.get(column="ADHD경향성", origin_score=r3)
     
