@@ -76,7 +76,11 @@
                     <li>
                       <div class="info-label">*거주지역</div>
                       <div class="styled-select">
-                        <select class="form-control required" name="country"></select>
+                        <select class="form-control required" name="country">
+                          {% for e in emd_list %}
+                          <option value="{{e.id}}">{{e}}</option>
+                          {% endfor %}
+                        </select>
                       </div>
                     </li>
                   </ul>
