@@ -59,13 +59,13 @@
 }
 
 .sentence {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: #000000;
-  margin: 14px 0;
+  margin: 15px 0;
 }
 
 .marked-sentence {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: #2864d4;
   /* 가운데정렬 */
 }
