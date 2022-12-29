@@ -26,10 +26,18 @@
       <div class="step step-padding">
         <!-- 결과지 상단 -->
         <div class="result-top">
-          * 발달장애아동의 발달이해 검사는 선별검사로 진단검사가 아닙니다. <br />
-          * 연령별 발달수준을 알 수 있는 발달지수와 자폐경향성, ADHD경향성을 검사결과로 알아볼 수
-          있습니다. <br />
-          * 본 전국규준표를 통해서 아동의 연령별 발달수준을 확인할 수 있습니다.
+          <ul>
+            <li><span>발달장애아동의 발달이해 검사는 선별검사로 진단검사가 아닙니다.</span></li>
+            <li>
+              <span
+                >연령별 발달수준을 알 수 있는 발달지수와 자폐경향성, ADHD경향성을 검사결과로 알아볼
+                수 있습니다.</span
+              >
+            </li>
+            <li>
+              <span>본 전국규준표를 통해서 아동의 연령별 발달수준을 확인할 수 있습니다.</span>
+            </li>
+          </ul>
         </div>
 
         <!-- 검사소개 -->
@@ -151,14 +159,14 @@
 
         <!-- 종합 소견 -->
         <div class="result-wrap">
-          <div class="list-wrap">
+          <div class="list-wrap mb-2">
             <div id="back-circle"></div>
             <div id="front-circle"></div>
             <div class="result-subtitle">종합소견</div>
           </div>
 
           <div class="result-common-text">
-            발달지수가 [성숙],[보통]으로 나타나면서, 자폐경향성이 [보통], [낮음], ADHD경향성이
+            발달지수가 [성숙], [보통]으로 나타나면서, 자폐경향성이 [보통], [낮음], ADHD경향성이
             [보통], [낮음] 으로 나타난다면 아동이 밝고 건강하게 잘 성장하고 있을 가능성이 높습니다.
             우리아이가 바르고 건강하게 성장할 수 있도록 열심히 노력하고 서포트하고 있는
             부모님/양육자분께 큰 박수드립니다.
@@ -190,23 +198,25 @@
 
         <!-- 기타 공지-->
         <div class="notice-wrap">
-          <div class="d-flex gap-2">
+          <div class="d-flex gap-2 mb-1">
             <div>
-              <img src="{% static 'img/notice.png' %}" width="30px" class="test-info-img" />
+              <img src="{% static 'img/notice.png' %}" width="30px" />
             </div>
-            <div>
-              <img src="{% static 'img/event.png' %}" width="160px" class="" />
-              <a href="https://forms.gle/PN4caWJ9vhKvZB4A6" class="researchBtn"
-                >만족도 조사 참여하기</a
-              >
+            <div class="mt-1">
+              <img src="{% static 'img/event.png' %}" class="event-img" />
+              <div>
+                <a href="https://forms.gle/PN4caWJ9vhKvZB4A6" class="researchBtn"
+                  >만족도 조사 참여하기</a
+                >
+              </div>
             </div>
           </div>
 
           <div class="d-flex gap-2">
             <div>
-              <img src="{% static 'img/notice.png' %}" width="30px" class="test-info-img" />
+              <img src="{% static 'img/notice.png' %}" width="30px" />
             </div>
-            <div>
+            <div class="misakyo mt-1">
               보다 자세한 결과상담을 원하신다면, 미사교심리연구소로 연락해 주세요. <br />
               E-mail: misakyo@naver.com <br />
               https://misakyo.com <br />
