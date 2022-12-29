@@ -305,8 +305,4 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,django,python
 
-question.txt
-인천광역시_법정동.csv
-규준표.xlsx
 SOS_Lab_검사결과.xlsx
-region.csv

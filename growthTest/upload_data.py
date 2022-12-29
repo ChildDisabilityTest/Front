@@ -14,6 +14,7 @@ $ python manage.py shell
 def upload_questions():
 
     f_path = os.path.abspath(os.path.join(
+        'data',
         'question.txt'
     ))
 
@@ -101,6 +102,7 @@ def upload_comments():
 def upload_criterion():
 
     f_path = os.path.abspath(os.path.join(
+        'data',
         '규준표.xlsx'
     ))
 

@@ -10,6 +10,7 @@ $ python manage.py shell
 # 지역정보 업로드
 def upload_region():
     f_path = os.path.abspath(os.path.join(
+        'data',
         'region.csv'
     ))
 
