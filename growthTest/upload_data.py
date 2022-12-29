@@ -2,6 +2,14 @@ import os
 from .models import *
 import pandas as pd
 
+"""
+$ python manage.py shell
+>>> from growthTest.upload_data import *
+>>> upload_questions()
+>>> upload_comments()
+>>> upload_criterion()
+"""
+
 # 질문 업로드
 def upload_questions():
 
