@@ -928,6 +928,7 @@ ul.data-list-2 li label.error {
   left: 50%;
   right: 50%;
   transform: translate(-50%, -50%);
+  width: 170px;
 }
 .answer-wrap label.error:before {
   content: "모든 검사문항에 체크해주세요.";
@@ -938,8 +939,8 @@ ul.data-list-2 li label.error {
   text-align: center;
   position: absolute;
   top: 0px;
-  /* right: -50px; */
-  transform: translate(-50%, 0);
+  left: 0px;
+  /* transform: translate(-50%, 0); */
 }
 
 /*============================================================================================*/
