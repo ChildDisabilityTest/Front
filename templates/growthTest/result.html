@@ -24,28 +24,47 @@
   <div id="survey_container" class="result-container">
     <div id="middle-wizard">
       <div class="step step-padding">
-        <!--  -->
-        <div>
-          발달장애아동의 발달이해 검사는 선별검사로 진단검사가 아닙니다. 연령별 발달수준을 알 수
-          있는 발달지수와 자폐경향성, ADHD경향성을 검사결과 알아볼 수 있습니다. 본 전국규준표를
-          통해서 아동의 연령별 발달수준을 확인할 수 있습니다.
+        <!-- 결과지 상단 -->
+        <div class="result-top">
+          * 발달장애아동의 발달이해 검사는 선별검사로 진단검사가 아닙니다. <br />
+          * 연령별 발달수준을 알 수 있는 발달지수와 자폐경향성, ADHD경향성을 검사결과로 알아볼 수
+          있습니다. <br />
+          * 본 전국규준표를 통해서 아동의 연령별 발달수준을 확인할 수 있습니다.
         </div>
 
-        <!-- 검사 소개 -->
-        <div>
-          <div>검사소개</div>
-          <div>
+        <!-- 검사소개 -->
+        <div class="result-wrap">
+          <div class="list-wrap">
+            <div id="back-circle"></div>
+            <div id="front-circle"></div>
+            <div class="result-subtitle">검사소개</div>
+          </div>
+
+          <!-- T점수 안내 -->
+          <div class="twrap">
+            <div>* T점수의 범위는 0점 ~ 100점 사이입니다.</div>
+            <div>* T점수가 40점 이하이면 <strong>지연/낮음</strong>입니다.</div>
+            <div>* T점수가 41점 ~ 59점이면 <strong>보통</strong>입니다.</div>
+            <div>* T점수가 60점 이상이면 <strong>성숙/높음</strong>입니다.</div>
+          </div>
+
+          <div class="result-common-text">
             발달지수는 연령별로 신체, 인지, 언어, 정서, 사회성과 관련된 항목을 통해서 아동의
             발달수준을 측정합니다. 발달지수와 자폐경향성과 ADHD경향성의 결과를 대조해서 생각해 볼 수
             있습니다. 발달지수는 현재 우리 아이가 다른 아동에 비해서 발달이 빠르다면 [성숙], 비슷한
             수준에서 발달하고 있다면 [보통], 다른 아동에 비해서 발달이 늦는다면 [지연]으로 나타날
-            것입니다. 자폐경향성은 자폐스펙트럼 장애에 대한 경향성을 측정합니다. 자폐스펙트럼
-            장애(ASD, Autism spectrum disorder)는 신경발달장애의 하나로 의사소통과 타인과 사회적
-            상호작용 능력이 떨어집니다. 특이한 패턴(행동, 관심, 활동)을 보입니다. 가까운 한두 명의
-            사람과의 특별한 관계를 제외하고는 다른 사람과의 관계를 원활하게 맺기가 어렵습니다.
-            때로는 언어 발달의 지체가 나타나거나 억양이 독특하여 음을 단조롭게 말하기도 합니다.
-            자폐경향성이 다른 아동에 비해서 높을수록 [높음]으로, 일반적으로 다른 아동과 비슷한
-            수준이면 [보통]으로, 다른 아동에 비해서 현저하게 낮은 경우에는 [낮음]으로 표기됩니다.
+            것입니다.
+          </div>
+          <div class="result-common-text">
+            자폐경향성은 자폐스펙트럼 장애에 대한 경향성을 측정합니다. 자폐스펙트럼 장애(ASD, Autism
+            spectrum disorder)는 신경발달장애의 하나로 의사소통과 타인과 사회적 상호작용 능력이
+            떨어집니다. 특이한 패턴(행동, 관심, 활동)을 보입니다. 가까운 한두 명의 사람과의 특별한
+            관계를 제외하고는 다른 사람과의 관계를 원활하게 맺기가 어렵습니다. 때로는 언어 발달의
+            지체가 나타나거나 억양이 독특하여 음을 단조롭게 말하기도 합니다. 자폐경향성이 다른
+            아동에 비해서 높을수록 [높음]으로, 일반적으로 다른 아동과 비슷한 수준이면 [보통]으로,
+            다른 아동에 비해서 현저하게 낮은 경우에는 [낮음]으로 표기됩니다.
+          </div>
+          <div class="result-common-text">
             ADHD경향성은 주의력결핍, 과잉행동의 경향성을 확인합니다. 본 검사는 선별검사이기 때문에,
             ADHD경향성이 높게 나온 경우는 보다 전문적인 검사평가와 전문가와의 상담을 권합니다.
             주의력결핍 과잉행동 장애(ADHD, Attention deficit hyperactivity disorder)는 주의산만,
@@ -55,14 +74,7 @@
             다른 아동에 비해서 높을수록 [높음]으로, 일반적으로 다른 아동과 비슷한 수준이면
             [보통]으로, 다른 아동에 비해서 현저하게 낮은 경우에는 [낮음]으로 표기될 것입니다.
           </div>
-        </div>
-
-        <!-- T점수 안내 -->
-        <div class="twrap">
-          <div>* T점수의 범위는 0점 ~ 100점 사이입니다.</div>
-          <div>* T점수가 40점 이하이면 <strong>지연/낮음</strong>입니다.</div>
-          <div>* T점수가 41점 ~ 59점이면 <strong>보통</strong>입니다.</div>
-          <div>* T점수가 60점 이상이면 <strong>성숙/높음</strong>입니다.</div>
+          <div class="divide-blue"></div>
         </div>
 
         <!-- 발달지수  -->
@@ -138,25 +150,42 @@
         </div>
 
         <!-- 종합 소견 -->
-        <div>
-          <div>종합소견</div>
-          <div>
+        <div class="result-wrap">
+          <div class="list-wrap">
+            <div id="back-circle"></div>
+            <div id="front-circle"></div>
+            <div class="result-subtitle">종합소견</div>
+          </div>
+
+          <div class="result-common-text">
             발달지수가 [성숙],[보통]으로 나타나면서, 자폐경향성이 [보통], [낮음], ADHD경향성이
             [보통], [낮음] 으로 나타난다면 아동이 밝고 건강하게 잘 성장하고 있을 가능성이 높습니다.
             우리아이가 바르고 건강하게 성장할 수 있도록 열심히 노력하고 서포트하고 있는
-            부모님/양육자분께 큰 박수드립니다. 발달지수가 [지연]으로 나타나면서, 자폐경향성이
-            [높음], ADHD경향성이 [높음]으로 나타난다면, 발달지연과 함께 발달장애가 의심되는
-            상황입니다. 발달검사와 더불어 자폐, ADHD와 관련된 전문검사도구를 활용하여 보다 정밀한
-            발달검사와 전문가의 상담을 받아보실 것을 권합니다. 발달지수가 [보통], [성숙]으로
-            나타나면서, 자폐경향성이 [높음], ADHD경향성이 [높음]으로 나타난다면, 자폐스펙트럼
-            장애에서 나타날 수 있는 문제행동의 유형, ADHD장애에서 나타날 수 있는 문제행동의 유형,
-            현재 아동의 문제행동의 양상과 패턴을 비교하여 관찰해보실 것을 권합니다. 즉 아동이
-            성장하고 발달하는 과정에서 생겨나는 문제행동인지, 자폐나 ADHD경향성에서 나타날 수 있는
-            행동인지 구분할 필요가 있습니다. 또한 자폐스펙트럼장애 전문검사도구와 ADHD
+            부모님/양육자분께 큰 박수드립니다.
+          </div>
+          <div class="result-common-text">
+            발달지수가 [지연]으로 나타나면서, 자폐경향성이 [높음], ADHD경향성이 [높음]으로
+            나타난다면, 발달지연과 함께 발달장애가 의심되는 상황입니다. 발달검사와 더불어 자폐,
+            ADHD와 관련된 전문검사도구를 활용하여 보다 정밀한 발달검사와 전문가의 상담을 받아보실
+            것을 권합니다.
+          </div>
+          <div class="result-common-text">
+            발달지수가 [보통], [성숙]으로 나타나면서, 자폐경향성이 [높음], ADHD경향성이 [높음]으로
+            나타난다면, 자폐스펙트럼 장애에서 나타날 수 있는 문제행동의 유형, ADHD장애에서 나타날 수
+            있는 문제행동의 유형, 현재 아동의 문제행동의 양상과 패턴을 비교하여 관찰해보실 것을
+            권합니다.
+          </div>
+          <div class="result-common-text">
+            즉 아동이 성장하고 발달하는 과정에서 생겨나는 문제행동인지, 자폐나 ADHD경향성에서 나타날
+            수 있는 행동인지 구분할 필요가 있습니다. 또한 자폐스펙트럼장애 전문검사도구와 ADHD
             전문검사도구를 통해서 보다 전문적인 검사와 전문가와의 상담을 받아볼 필요가 있겠습니다.
+          </div>
+          <div class="result-common-text">
             발달상 문제는 조기발견, 조기치료가 중요합니다. 사랑스러운 아이의 든든한 양육자가
             되어주세요. 위대한 육아를 응원 드립니다.
           </div>
+
+          <div class="divide-blue"></div>
         </div>
 
         <!-- 기타 공지-->
@@ -166,10 +195,10 @@
               <img src="{% static 'img/notice.png' %}" width="30px" class="test-info-img" />
             </div>
             <div>
-              보다 자세한 결과상담을 원하신다면, 미사교심리연구소로 연락해 주세요. <br />
-              E-mail: misakyo@naver.com <br />
-              https://misakyo.com <br />
-              https://blog.naver.com/misakyo
+              <img src="{% static 'img/event.png' %}" width="160px" class="" />
+              <a href="https://forms.gle/PN4caWJ9vhKvZB4A6" class="researchBtn"
+                >만족도 조사 참여하기</a
+              >
             </div>
           </div>
 
@@ -178,8 +207,10 @@
               <img src="{% static 'img/notice.png' %}" width="30px" class="test-info-img" />
             </div>
             <div>
-              <img src="{% static 'img/event.png' %}" width="80px" class="" />
-              <a href="https://forms.gle/PN4caWJ9vhKvZB4A6">만족도 조사 참여하기</a>
+              보다 자세한 결과상담을 원하신다면, 미사교심리연구소로 연락해 주세요. <br />
+              E-mail: misakyo@naver.com <br />
+              https://misakyo.com <br />
+              https://blog.naver.com/misakyo
             </div>
           </div>
         </div>

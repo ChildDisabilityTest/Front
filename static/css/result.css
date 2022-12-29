@@ -41,6 +41,14 @@
   border: 0.5px solid transparent; */
 }
 
+.result-top {
+  border-top: 0.1rem solid #2864d4;
+  border-bottom: 0.1rem solid #2864d4;
+  margin-bottom: 30px;
+  padding: 7px 20px;
+  font-size: 0.7rem;
+}
+
 .test-info-wrap {
   background-color: #e8edf5;
   border-top: 2px solid #3062d4;
@@ -92,6 +100,24 @@
   font-size: 0.6rem;
   font-weight: 500;
   text-align: center;
+}
+
+.researchBtn {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: #ffffff;
+  background-color: #2864d4;
+
+  width: 160px;
+  padding: 8px 0;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.researchBtn:hover {
+  text-decoration: none;
+  color: #2864d4;
+  background-color: #d2e0fb;
 }
 
 /* card news */
@@ -206,11 +232,20 @@
 
 /* T Score */
 .twrap {
-  border-top: 0.1rem solid #2864d4;
-  border-bottom: 0.1rem solid #2864d4;
-  margin-bottom: 30px;
-  padding: 7px 20px;
+  background-color: #f0f5fe;
+  margin-bottom: 15px;
+  padding: 5px 20px;
   font-size: 0.7rem;
+}
+
+.result-common-text {
+  font-size: 0.7rem;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+.divide-blue {
+  border-top: 0.1rem solid #2864d4;
 }
 
 /* From tablet portrait to mobile */

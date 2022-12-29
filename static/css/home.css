@@ -59,15 +59,14 @@
 }
 
 .sentence {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #000000;
-  margin: 15px 0;
+  margin: 8px 0;
 }
 
 .marked-sentence {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #2864d4;
-  /* 가운데정렬 */
 }
 
 .highlight {
@@ -87,6 +86,67 @@
   background: #d2e0fb;
 }
 
+.reason-box {
+  border: 1px solid #f9b252;
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin: 7px 0;
+  width: 330px;
+}
+
+.reason-title {
+  color: #f9b252;
+  font-weight: 500;
+  font-size: 0.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+.reason-content {
+  font-weight: 400;
+  font-size: 0.7rem;
+  line-height: 1.1rem;
+}
+
+.expert-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 25px 10px;
+}
+
+.expert-info {
+  width: 260px;
+  text-align: left;
+}
+
+.expert-title {
+  color: #f9b252;
+  font-weight: 500;
+  font-size: 0.6rem;
+}
+
+.expert-name {
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+
+.expert-wrap ul {
+  list-style: disc;
+  list-style-position: outside;
+  margin: 0;
+  padding-left: 17px;
+  font-size: 0.5rem;
+  font-weight: 500;
+}
+
+.expert-wrap ul li span {
+  position: relative;
+  left: -5px;
+}
+
 .test-info-wrap {
   position: absolute;
   left: 50%;
@@ -96,27 +156,39 @@
   width: 100%;
 }
 
-.test-name {
-  font-size: 2rem;
-  margin: 5px 0;
+.test-top {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.test-span {
   color: #2864d4;
 }
 
 .tester-box {
   font-size: 0.8rem;
-  margin: 5px 10px;
-  padding: 3px 15px;
+  margin-top: 6px;
+  padding: 3px 17px;
   background-color: #d2e0fb;
   border-radius: 1rem;
 }
 
 .test-info-img {
-  margin: 15px 0;
+  margin: 5px 0 17px 0;
 }
 
 .test-info {
   font-size: 1rem;
   margin: 5px 0;
+}
+
+.test-bg {
+  background-color: rgba(210, 224, 251, 0.5);
+  width: 300px;
+  padding: 9px 0;
+  border-radius: 5px;
+  font-size: 0.7rem;
+  line-height: 1rem;
 }
 
 .testBtn {
@@ -128,11 +200,32 @@
   width: 270px;
   padding: 8px 0;
   border-radius: 4px;
-  margin-top: 35px;
+  margin-top: 20px;
 }
 
 .testBtn:hover {
   text-decoration: none;
   color: #2864d4;
   background-color: #d2e0fb;
+}
+
+/* Mobile Landscape */
+@media (max-width: 480px) {
+  .sentence {
+    font-size: 1.5rem;
+    margin: 13px 0;
+  }
+
+  .marked-sentence {
+    font-size: 1.5rem;
+  }
+
+  .expert-info {
+    width: 200px;
+  }
+
+  .test-top {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
 }

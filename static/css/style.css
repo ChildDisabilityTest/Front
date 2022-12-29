@@ -1150,12 +1150,13 @@ ul.data-list-2 li label.error {
 }
 
 .answer-wrap {
-  /* background-color: rgb(189, 189, 189); */
-  margin-bottom: 20px;
+  /* background-color: rgb(228, 204, 151); */
+  margin-bottom: 17px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2px;
   width: 25%;
 }
 
@@ -1164,7 +1165,7 @@ ul.data-list-2 li label.error {
   vertical-align: middle;
   width: 1.1rem;
   height: 1.1rem;
-  border: 1px solid rgb(179, 179, 179);
+  border: 1px solid #757575;
   border-radius: 50%;
   transition: border 0.3s ease-in-out;
 }
@@ -1177,11 +1178,15 @@ ul.data-list-2 li label.error {
 }
 
 .answer-label {
-  font-size: 11px;
-  /* transform: scale(0.9); */
+  font-size: 10px;
   color: #757575;
-  /* color: #000; */
   cursor: pointer;
+  height: 30px;
+  line-height: 14px;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
 }
 
 .complete-text {
@@ -1198,7 +1203,7 @@ ul.data-list-2 li label.error {
 }
 
 .test-notice {
-  margin: 40px 0 20px 0;
+  margin: 10px 0 10px 0;
 }
 
 .test-notice div {
@@ -1239,6 +1244,7 @@ ul.data-list-2 li label.error {
   line-height: 1rem;
   padding: 10px 0;
   text-align: center;
+  border-radius: 4px;
 }
 
 /*============================================================================================*/
@@ -1252,9 +1258,9 @@ ul.data-list-2 li label.error {
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
-  #middle-wizard {
+  /* #middle-wizard {
     padding: 40px 60px 35px 60px;
-  }
+  } */
   #contact {
     background: none;
   }
@@ -1275,7 +1281,7 @@ ul.data-list-2 li label.error {
 }
 
 /* From tablet portrait to mobile */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   #top-nav {
     width: 100%;
     float: left;
@@ -1375,6 +1381,10 @@ ul.data-list-2 li label.error {
   .answer-wrap label.error {
     bottom: 55px;
   }
+
+  #complete {
+    padding: 0;
+  }
 }
 
 /* Mobile Landscape */
@@ -1463,7 +1473,7 @@ ul.data-list-2 li label.error {
     margin-bottom: 14px;
   }
   .answer-label {
-    transform: scale(0.8);
+    transform: scale(0.9);
   }
   .info-padding {
     padding: 8px 30px;
