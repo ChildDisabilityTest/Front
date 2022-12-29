@@ -39,7 +39,12 @@ def data_to_excel(request):
                 'ADHD경향성 (백분위)', 
                 'ADHD경향성 (단계)', 
                 '검사날짜',
-                '답안',
+                '1','2','3','4','5','6','7','8','9','10',
+                '11','12','13','14','15','16','17','18','19','20',
+                '21','22','23','24','25','26','27','28','29','30',
+                '31','32','33','34','35','36','37','38','39','40',
+                '41','42','43','44','45','46','47','48','49','50',
+                '51','52','53','54',
                 '검사자 이름',
                 '검사자 생년월일',
                 '검사자 휴대폰번호',
@@ -49,6 +54,7 @@ def data_to_excel(request):
         )
         result = Result.objects.all()
         for r in result:
+            a = r.child.answer_child.answers
             df = df.append(
                 pd.DataFrame(
                     [[
@@ -72,7 +78,12 @@ def data_to_excel(request):
                         r.adhd_percentile, # ADHD경향성 백분위
                         r.adhd_stage, # ADHD경향성 단계
                         r.child.tested_at.strftime('%Y-%m-%d'), # 검사날짜
-                        str(r.child.answer_child.answers[1:]).replace("[", "").replace("]", ""), # 답안
+                        a[1],a[2],a[3],a[4],a[5],a[6],a[7],a[8],a[9],a[10],
+                        a[11],a[12],a[13],a[14],a[15],a[16],a[17],a[18],a[19],a[20],
+                        a[21],a[22],a[23],a[24],a[25],a[26],a[27],a[28],a[29],a[30],
+                        a[31],a[32],a[33],a[34],a[35],a[36],a[37],a[38],a[39],a[40],
+                        a[41],a[42],a[43],a[44],a[45],a[46],a[47],a[48],a[49],a[50],
+                        a[51],a[52],a[53],a[54],
                         r.child.tester_child.name, # 검사자 이름
                         r.child.tester_child.birthDate, # 검사자 생년월일
                         r.child.tester_child.phone_number, # 검사자 휴대폰번호
@@ -100,7 +111,12 @@ def data_to_excel(request):
                         'ADHD경향성 (백분위)', 
                         'ADHD경향성 (단계)', 
                         '검사날짜',
-                        '답안',
+                        '1','2','3','4','5','6','7','8','9','10',
+                        '11','12','13','14','15','16','17','18','19','20',
+                        '21','22','23','24','25','26','27','28','29','30',
+                        '31','32','33','34','35','36','37','38','39','40',
+                        '41','42','43','44','45','46','47','48','49','50',
+                        '51','52','53','54',
                         '검사자 이름',
                         '검사자 생년월일',
                         '검사자 휴대폰번호',
@@ -125,9 +141,12 @@ def data_to_excel(request):
         ws.column_dimensions["E"].width = 17 # 거주지역
         ws.column_dimensions["G"].width = 14 # 어린이집/유치원이름
         ws.column_dimensions["T"].width = 11 # 검사날짜
-        ws.column_dimensions["U"].width = 110 # 답안
-        ws.column_dimensions["W"].width = 11 # 검사자 생년월일
-        ws.column_dimensions["X"].width = 13 # 검사자 휴대폰번호
+        ws.column_dimensions["U"].width = 3 # 답안
+        ws.column_dimensions["BX"].width = 11 # 검사자 생년월일
+        ws.column_dimensions["BY"].width = 13 # 검사자 휴대폰번호
+
+        for col in range(21,75):
+            ws.column_dimensions[openpyxl.utils.get_column_letter(col)].width = 4 # 답안
 
         # 가운데 정렬
         for row in ws.rows:
