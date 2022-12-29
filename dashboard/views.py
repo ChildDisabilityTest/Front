@@ -121,22 +121,13 @@ def data_to_excel(request):
         ws = wb.active
 
         # 열너비 조정
-        ws.column_dimensions["C"].width = 11
-        ws.column_dimensions["E"].width = 17
-        ws.column_dimensions["G"].width = 14
-        ws.column_dimensions["L"].width = 10
-        ws.column_dimensions["M"].width = 10
-        ws.column_dimensions["N"].width = 10
-        ws.column_dimensions["O"].width = 10
-        ws.column_dimensions["P"].width = 12
-        ws.column_dimensions["Q"].width = 12
-        ws.column_dimensions["R"].width = 12
-        ws.column_dimensions["S"].width = 12
-        ws.column_dimensions["T"].width = 11
-        ws.column_dimensions["U"].width = 110
-        ws.column_dimensions["V"].width = 11
-        ws.column_dimensions["W"].width = 11
-        ws.column_dimensions["X"].width = 13
+        ws.column_dimensions["C"].width = 11 # 생년월일
+        ws.column_dimensions["E"].width = 17 # 거주지역
+        ws.column_dimensions["G"].width = 14 # 어린이집/유치원이름
+        ws.column_dimensions["T"].width = 11 # 검사날짜
+        ws.column_dimensions["U"].width = 110 # 답안
+        ws.column_dimensions["W"].width = 11 # 검사자 생년월일
+        ws.column_dimensions["X"].width = 13 # 검사자 휴대폰번호
 
         # 가운데 정렬
         for row in ws.rows:
