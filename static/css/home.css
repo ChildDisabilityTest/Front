@@ -175,6 +175,8 @@
 
 .test-info-img {
   margin: 5px 0 17px 0;
+  width: 200px;
+  height: 200px;
 }
 
 .test-info {
@@ -185,7 +187,7 @@
 .test-bg {
   background-color: rgba(210, 224, 251, 0.5);
   width: 300px;
-  padding: 9px 0;
+  padding: 7px 0;
   border-radius: 5px;
   font-size: 0.7rem;
   line-height: 1rem;
@@ -225,7 +227,58 @@
   }
 
   .test-top {
-    font-size: 1.8rem;
-    line-height: 2.4rem;
+    font-size: 1.65rem;
+    line-height: 2.2rem;
+  }
+
+  .test-info-img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .testBtn {
+    margin-top: 10px;
+  }
+}
+
+/* Custom - Minimal width mobile */
+@media (max-width: 380px) {
+  .sentence {
+    font-size: 1.1rem;
+    margin: 6px 0;
+  }
+
+  .marked-sentence {
+    font-size: 1.1rem;
+  }
+
+  .reason-box {
+    padding: 5px 10px;
+    margin: 4px 0;
+    width: 310px;
+  }
+
+  .reason-content {
+    font-size: 0.7rem;
+    line-height: 1rem;
+  }
+
+  .test-top {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .test-info-img {
+    width: 140px;
+    height: 140px;
+    margin: 3px 0 10px 0;
+  }
+
+  .test-bg {
+    width: 270px;
+  }
+
+  .testBtn {
+    margin-top: 10px;
   }
 }
